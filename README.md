@@ -35,7 +35,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Netlify
 
-TBD
+The easiest way to deploy this app is to use the [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/nimblehq/til-web).
+
+Check out [Netlify deployment documentation](https://docs.netlify.com/site-deploys/overview/) for more details.
 
 ## License
 
