@@ -2,8 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { getAllPosts, Post } from 'src/lib/post';
-
+import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 import styles from 'styles/Home.module.css';
 
 export const homeDataTestIds = {
@@ -71,14 +70,7 @@ const Home = ({ posts }: HomeProps) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const posts = getAllPosts([
-    'title',
-    'date',
-    'slug',
-    'author',
-    'coverImage',
-    'excerpt',
-  ]);
+  const posts = getAllPosts(BASIC_FIELDS);
 
   return {
     props: { posts },
