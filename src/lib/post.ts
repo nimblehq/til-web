@@ -24,6 +24,15 @@ type Field =
   | 'ogImage'
   | 'author';
 
+const BASIC_FIELDS = [
+  'title',
+  'date',
+  'slug',
+  'author',
+  'coverImage',
+  'excerpt',
+] as Field[];
+
 const postsDirectory = join(process.cwd(), '_posts');
 
 const getPostSlugs = () => {
@@ -66,5 +75,5 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts };
+export { getPostBySlug, getAllPosts, BASIC_FIELDS };
 export type { Post, Field };
