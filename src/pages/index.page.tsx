@@ -43,6 +43,7 @@ const Home = ({ posts }: HomeProps) => {
                   width={480}
                   height={320}
                   layout="responsive"
+                  objectFit="contain"
                 />
                 <p>{post.excerpt}</p>
               </a>
