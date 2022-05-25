@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { getPaginationData } from 'helpers/pagination';
 import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 import styles from 'styles/Home.module.css';
 
@@ -72,8 +73,9 @@ export default Home;
 
 export const getStaticProps = async () => {
   const posts = getAllPosts(BASIC_FIELDS);
+  const { paginatedItems } = getPaginationData(posts, 1);
 
   return {
-    props: { posts },
+    props: { posts: paginatedItems },
   };
 };
