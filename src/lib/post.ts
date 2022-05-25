@@ -44,6 +44,7 @@ const getPostSlugs = () => {
 const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
   const realSlug = slug.replace(SLUG_EXTENSION, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
+
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
