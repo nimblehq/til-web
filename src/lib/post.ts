@@ -33,6 +33,8 @@ const BASIC_FIELDS = [
   'excerpt',
 ] as Field[];
 
+const SLUG_EXTENSION = /\.md$/;
+
 const postsDirectory = join(process.cwd(), '_posts');
 
 const getPostSlugs = () => {
@@ -40,7 +42,7 @@ const getPostSlugs = () => {
 };
 
 const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
-  const realSlug = slug.replace(/\.md$/, '');
+  const realSlug = slug.replace(SLUG_EXTENSION, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
