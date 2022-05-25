@@ -34,6 +34,7 @@
     "cypress": "9.6.1",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
+    "gray-matter": "4.0.3",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
     "start-server-and-test": "1.14.0",
