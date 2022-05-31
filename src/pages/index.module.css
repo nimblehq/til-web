@@ -1,0 +1,7 @@
+.homeContainer {
+  /* @apply container mx-auto; */
+}
+
+.title {
+  @apply text-7xl items-center text-center;
+}
