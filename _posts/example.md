@@ -5,7 +5,7 @@ coverImage: '/assets/posts/example/cover.png'
 date: '2022-05-15T15:00:00+07:00'
 author:
   name: Hoang
-  picture: '/assets/authors/hoang.jpeg'
+  avatar: '/assets/authors/hoang.jpeg'
 ogImage:
   url: '/assets/posts/example/cover.png'
 ---
