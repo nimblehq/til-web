@@ -7,19 +7,23 @@ import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 
 import styles from './index.module.css';
 
-export const homeDataTestIds = {
-  heading: 'home-heading',
-};
-
 interface HomeProps {
   posts: Post[];
 }
 
+export const homeDataTestIds = {
+  heading: 'home-heading',
+};
+
 const Home = ({ posts }: HomeProps) => {
   return (
-    <div className={styles.homeContainer}>
+    <>
+      <h1 className={styles.homeHeading} data-test-id={homeDataTestIds.heading}>
+        TIL
+      </h1>
+
       <PostList posts={posts} />
-    </div>
+    </>
   );
 };
 
