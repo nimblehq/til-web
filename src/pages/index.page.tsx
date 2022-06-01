@@ -1,7 +1,10 @@
 import { ReactElement } from 'react';
 
+import Head from 'next/head';
+
 import Layout from 'components/Layout';
 import PostList from 'components/Post/List';
+import { getPageTitle } from 'helpers/pageTitle';
 import { getPaginationData } from 'helpers/pagination';
 import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 
@@ -18,6 +21,10 @@ export const homeDataTestIds = {
 const Home = ({ posts }: HomeProps) => {
   return (
     <>
+      <Head>
+        <title>{getPageTitle()}</title>
+      </Head>
+
       <h1 className={styles.homeHeading} data-test-id={homeDataTestIds.heading}>
         TIL
       </h1>
