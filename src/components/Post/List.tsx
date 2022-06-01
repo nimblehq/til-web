@@ -1,7 +1,6 @@
 import { Post } from 'lib/post';
 
 import PostCard from './Card';
-import styles from './List.module.css';
 
 interface PostListProps {
   posts: Post[];
@@ -13,7 +12,7 @@ export const postListTestIds = {
 
 const PostList = ({ posts }: PostListProps) => {
   return (
-    <div className={styles.listContainer} data-test-id={postListTestIds.root}>
+    <div data-test-id={postListTestIds.root}>
       {posts.map((post) => (
         <PostCard post={post} key={post.slug} />
       ))}

@@ -1,5 +1,3 @@
-import styles from './index.module.css';
-
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -7,7 +5,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <main className={styles.mainContainer}>{children}</main>
+      <main className="container max-w-4xl mx-auto">{children}</main>
     </>
   );
 };
