@@ -8,8 +8,6 @@ import { getPageTitle } from 'helpers/pageTitle';
 import { getPaginationData } from 'helpers/pagination';
 import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 
-import styles from './index.module.css';
-
 interface HomeProps {
   posts: Post[];
 }
@@ -25,7 +23,10 @@ const Home = ({ posts }: HomeProps) => {
         <title>{getPageTitle()}</title>
       </Head>
 
-      <h1 className={styles.homeHeading} data-test-id={homeDataTestIds.heading}>
+      <h1
+        className="m-8 text-7xl items-center text-center"
+        data-test-id={homeDataTestIds.heading}
+      >
         TIL
       </h1>
 

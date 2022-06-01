@@ -4,8 +4,6 @@ import Link from 'next/link';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
-import styles from './Card.module.css';
-
 interface PostCardProps {
   post: Post;
 }
@@ -23,17 +21,20 @@ export const postCardTestIds = {
 
 const PostCard = ({ post }: PostCardProps) => {
   return (
-    <div className={styles.cardContainter} data-test-id={postCardTestIds.root}>
-      <div className={styles.cardBody}>
+    <div
+      className="card bg-base-200 shadow-xl my-8 rounded-lg"
+      data-test-id={postCardTestIds.root}
+    >
+      <div className="px-8 pt-8 pb-4">
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
           <a href={`/posts/${post.slug}`} data-test-id={postCardTestIds.link}>
             <h2
-              className={styles.cardTitle}
+              className="text-2xl font-bold text-center hover:text-primary"
               data-test-id={postCardTestIds.title}
             >
               {post.title}
             </h2>
-            <div className={styles.cardImage}>
+            <div className="m-auto max-w-sm">
               <Image
                 src={post.coverImage}
                 alt={post.title}
@@ -46,17 +47,14 @@ const PostCard = ({ post }: PostCardProps) => {
             </div>
           </a>
         </Link>
-        <p
-          className={styles.cardDescription}
-          data-test-id={postCardTestIds.description}
-        >
+        <p data-test-id={postCardTestIds.description}>
           {post.excerpt || post.content}
         </p>
-        <div className={styles.cardFooter}>
-          <div className={styles.cardFooterRight}>
-            <div className={styles.cardAuthor}>
-              <div className={styles.cardAvatarContainer}>
-                <div className={styles.cardAvatar}>
+        <div className="flex flex-row mt-4">
+          <div className="ml-auto">
+            <div className="flex items-center gap-2">
+              <div className="avatar">
+                <div className="w-8 rounded-full">
                   <Image
                     src={post.author.avatar}
                     alt={post.author.name}
@@ -69,13 +67,13 @@ const PostCard = ({ post }: PostCardProps) => {
                 </div>
               </div>
               <div
-                className={styles.cardAuthorName}
+                className="text-sm font-semibold"
                 data-test-id={postCardTestIds.authorName}
               >
                 {post.author.name}
               </div>
               <time
-                className={styles.cardDate}
+                className="text-sm"
                 dateTime={post.date}
                 data-test-id={postCardTestIds.date}
               >
