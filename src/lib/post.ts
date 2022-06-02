@@ -3,6 +3,11 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
+type Author = {
+  name: string;
+  avatar: string;
+};
+
 type Post = {
   slug: string;
   title: string;
@@ -11,7 +16,7 @@ type Post = {
   date: string;
   coverImage: string;
   ogImage: string;
-  author: string;
+  author: Author;
 };
 
 type Field =
