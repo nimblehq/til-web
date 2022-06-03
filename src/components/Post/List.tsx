@@ -1,21 +1,26 @@
+import Pagination from 'components/Pagination';
 import { Post } from 'lib/post';
 
 import PostCard from './Card';
 
 interface PostListProps {
   posts: Post[];
+  currentPage: number;
+  totalPages: number;
 }
 
 export const postListTestIds = {
   root: 'post-list',
 };
 
-const PostList = ({ posts }: PostListProps) => {
+const PostList = ({ posts, currentPage, totalPages }: PostListProps) => {
   return (
     <div data-test-id={postListTestIds.root}>
       {posts.map((post) => (
         <PostCard post={post} key={post.slug} />
       ))}
+
+      <Pagination currentPage={currentPage} totalPages={totalPages} />
     </div>
   );
 };
