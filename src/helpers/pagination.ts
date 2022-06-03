@@ -1,19 +1,23 @@
 import { DEFAULT_PAGE_NUMBER, DEFAULT_PAGE_SIZE } from 'config';
 
-interface PaginateProps {
-  items: unknown[];
+interface PaginateProps<Type> {
+  items: Type[];
   pageNumber: number;
   pageSize: number;
 }
 
-const paginate = ({ items, pageNumber, pageSize }: PaginateProps) => {
+const paginate = <Type>({
+  items,
+  pageNumber,
+  pageSize,
+}: PaginateProps<Type>): Type[] => {
   const startIndex = (pageNumber - 1) * pageSize;
 
   return items.slice(startIndex, startIndex + pageSize);
 };
 
-const getPaginationData = (
-  items: unknown[],
+const getPaginationData = <Type>(
+  items: Type[],
   pageNumber = DEFAULT_PAGE_NUMBER,
   pageSize = DEFAULT_PAGE_SIZE
 ) => {
