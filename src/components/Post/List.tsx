@@ -14,6 +14,10 @@ export const postListTestIds = {
 };
 
 const PostList = ({ posts, currentPage, totalPages }: PostListProps) => {
+  if (posts.length === 0) {
+    return <></>;
+  }
+
   return (
     <div data-test-id={postListTestIds.root}>
       {posts.map((post) => (
