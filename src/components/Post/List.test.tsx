@@ -7,10 +7,10 @@ import PostList, { postListTestIds } from './List';
 describe('PostList', () => {
   describe('given no posts', () => {
     it('renders nothing', () => {
-      render(<PostList posts={[]} />);
+      render(<PostList posts={[]} currentPage={1} totalPages={1} />);
       const postList = screen.queryByTestId(postListTestIds.root);
 
-      expect(postList).toBeEmptyDOMElement();
+      expect(postList).toBeNull();
     });
   });
 
@@ -30,7 +30,7 @@ describe('PostList', () => {
         } as Post,
       ];
 
-      render(<PostList posts={posts} />);
+      render(<PostList posts={posts} currentPage={1} totalPages={1} />);
 
       const postList = screen.queryByTestId(postListTestIds.root);
 

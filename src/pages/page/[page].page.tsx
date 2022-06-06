@@ -11,17 +11,17 @@ import { getPageTitle } from 'helpers/pageTitle';
 import { getPaginationData } from 'helpers/pagination';
 import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 
-interface HomeProps {
+interface PageProps {
   posts: Post[];
   currentPage: number;
   totalPages: number;
 }
 
-export const homeDataTestIds = {
-  heading: 'home-heading',
+export const pageDataTestIds = {
+  heading: 'page-heading',
 };
 
-const Page = ({ posts, currentPage, totalPages }: HomeProps) => {
+const Page = ({ posts, currentPage, totalPages }: PageProps) => {
   return (
     <>
       <Head>
@@ -30,7 +30,7 @@ const Page = ({ posts, currentPage, totalPages }: HomeProps) => {
 
       <h1
         className="m-8 text-7xl items-center text-center"
-        data-test-id={homeDataTestIds.heading}
+        data-test-id={pageDataTestIds.heading}
       >
         TIL
       </h1>
