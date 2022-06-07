@@ -27,7 +27,8 @@ type Field =
   | 'date'
   | 'coverImage'
   | 'ogImage'
-  | 'author';
+  | 'author'
+  | 'tags';
 
 const BASIC_FIELDS = [
   'title',
