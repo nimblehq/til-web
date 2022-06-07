@@ -58,8 +58,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params as PostParams;
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { slug } = params as PostParams;
   const post = getPostBySlug(slug, BASIC_FIELDS);
 
   return {
