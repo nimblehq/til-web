@@ -17,6 +17,7 @@ type Post = {
   coverImage: string;
   ogImage: string;
   author: Author;
+  tags: string[];
 };
 
 type Field =
@@ -38,6 +39,8 @@ const BASIC_FIELDS = [
   'coverImage',
   'excerpt',
 ] as Field[];
+
+const EXTENDED_FIELDS = [...BASIC_FIELDS, 'content', 'tags'] as Field[];
 
 const SLUG_EXTENSION = /\.md$/;
 
@@ -88,5 +91,5 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts, BASIC_FIELDS };
+export { getPostBySlug, getAllPosts, BASIC_FIELDS, EXTENDED_FIELDS };
 export type { Post, Field };
