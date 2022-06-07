@@ -7,7 +7,13 @@ import Head from 'next/head';
 
 import Layout from 'components/Layout';
 import { getPageTitle } from 'helpers/pageTitle';
-import { BASIC_FIELDS, getAllPosts, getPostBySlug, Post } from 'lib/post';
+import {
+  BASIC_FIELDS,
+  EXTENDED_FIELDS,
+  getAllPosts,
+  getPostBySlug,
+  Post,
+} from 'lib/post';
 
 interface PostProps {
   post: Post;
@@ -60,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as PostParams;
-  const post = getPostBySlug(slug, BASIC_FIELDS);
+  const post = getPostBySlug(slug, EXTENDED_FIELDS);
 
   return {
     props: { post },
