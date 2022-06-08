@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 
 import Layout from 'components/Layout';
@@ -39,7 +40,7 @@ Home.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
 export default Home;
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts(BASIC_FIELDS);
   const { paginatedItems } = getPaginationData(posts, 1);
 
