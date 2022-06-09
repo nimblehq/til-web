@@ -12,7 +12,7 @@ describe('Pagination', () => {
   });
 
   describe('previous button', () => {
-    describe('when the current page is not the first page', () => {
+    describe('when the current page is NOT the first page', () => {
       it('renders the previous button enabled', () => {
         render(<Pagination currentPage={2} totalPages={1} />);
 
@@ -34,7 +34,7 @@ describe('Pagination', () => {
   });
 
   describe('next button', () => {
-    describe('when the current page is not the last page', () => {
+    describe('when the current page is NOT the last page', () => {
       it('renders the next button enabled', () => {
         render(<Pagination currentPage={1} totalPages={2} />);
 
