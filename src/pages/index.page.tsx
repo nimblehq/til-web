@@ -11,13 +11,15 @@ import { BASIC_FIELDS, getAllPosts, Post } from 'lib/post';
 
 interface HomeProps {
   posts: Post[];
+  currentPage: number;
+  totalPages: number;
 }
 
 export const homeDataTestIds = {
   heading: 'home-heading',
 };
 
-const Home = ({ posts }: HomeProps) => {
+const Home = ({ posts, currentPage, totalPages }: HomeProps) => {
   return (
     <>
       <Head>
@@ -31,7 +33,11 @@ const Home = ({ posts }: HomeProps) => {
         TIL
       </h1>
 
-      <PostList posts={posts} />
+      <PostList
+        posts={posts}
+        currentPage={currentPage}
+        totalPages={totalPages}
+      />
     </>
   );
 };
@@ -42,9 +48,9 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts(BASIC_FIELDS);
-  const { paginatedItems } = getPaginationData(posts, 1);
+  const { paginatedItems, totalPages } = getPaginationData(posts);
 
   return {
-    props: { posts: paginatedItems },
+    props: { posts: paginatedItems, currentPage: 1, totalPages },
   };
 };

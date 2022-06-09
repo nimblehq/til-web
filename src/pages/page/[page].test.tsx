@@ -2,15 +2,15 @@ import { render, screen } from '@testing-library/react';
 
 import { postListTestIds } from 'components/Post/List';
 import { BASIC_FIELDS, getAllPosts } from 'lib/post';
-import Home, { homeDataTestIds } from 'pages/index.page';
+import Page, { pageDataTestIds } from 'pages/page/[page].page';
 
-describe('Home', () => {
+describe('Page', () => {
   it('renders the heading', () => {
     const posts = getAllPosts(BASIC_FIELDS);
 
-    render(<Home posts={posts} currentPage={1} totalPages={1} />);
+    render(<Page posts={posts} currentPage={1} totalPages={1} />);
 
-    const heading = screen.getByTestId(homeDataTestIds.heading);
+    const heading = screen.getByTestId(pageDataTestIds.heading);
 
     expect(heading).toBeVisible();
   });
@@ -18,7 +18,7 @@ describe('Home', () => {
   describe('PostList', () => {
     describe('when there are no posts', () => {
       it('does NOT render the list', () => {
-        render(<Home posts={[]} currentPage={1} totalPages={1} />);
+        render(<Page posts={[]} currentPage={1} totalPages={1} />);
 
         const postList = screen.queryByTestId(postListTestIds.root);
 
@@ -30,7 +30,7 @@ describe('Home', () => {
       it('renders the list', () => {
         const posts = getAllPosts(BASIC_FIELDS);
 
-        render(<Home posts={posts} currentPage={1} totalPages={1} />);
+        render(<Page posts={posts} currentPage={1} totalPages={1} />);
 
         const postList = screen.getByTestId(postListTestIds.root);
 
