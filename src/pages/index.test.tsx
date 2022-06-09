@@ -17,7 +17,7 @@ describe('Home', () => {
 
   describe('PostList', () => {
     describe('when there are no posts', () => {
-      it('does not render the list', () => {
+      it('does NOT render the list', () => {
         render(<Home posts={[]} currentPage={1} totalPages={1} />);
 
         const postList = screen.queryByTestId(postListTestIds.root);
