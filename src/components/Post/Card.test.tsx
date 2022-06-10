@@ -5,7 +5,7 @@ import { Post } from 'lib/post';
 import PostCard, { postCardTestIds } from './Card';
 
 describe('PostCard', () => {
-  let post = {
+  const post = {
     title: 'Post 1',
     slug: 'post-1',
     date: '2020-01-01',
@@ -61,7 +61,7 @@ describe('PostCard', () => {
       it('renders the excerpt in the description', () => {
         const otherPost = {
           ...post,
-          excerpt: 'This is the excerp of the first post',
+          excerpt: 'This is the excerpt of the first post',
         };
 
         render(<PostCard post={otherPost} />);
@@ -70,17 +70,13 @@ describe('PostCard', () => {
 
         expect(description).toBeVisible();
         expect(description).toHaveTextContent(
-          'This is the excerp of the first post'
+          'This is the excerpt of the first post'
         );
       });
     });
 
     describe('given no excerpt', () => {
       it('renders the content in the description', () => {
-        post = {
-          ...post,
-        };
-
         render(<PostCard post={post} />);
 
         const description = screen.queryByTestId(postCardTestIds.description);
