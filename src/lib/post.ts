@@ -38,9 +38,10 @@ const BASIC_FIELDS = [
   'author',
   'coverImage',
   'excerpt',
+  'content',
 ] as Field[];
 
-const EXTENDED_FIELDS = [...BASIC_FIELDS, 'content', 'tags'] as Field[];
+const EXTENDED_FIELDS = [...BASIC_FIELDS, 'ogImage', 'tags'] as Field[];
 
 const SLUG_EXTENSION = /\.md$/;
 
