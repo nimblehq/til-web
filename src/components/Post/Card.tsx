@@ -50,37 +50,31 @@ const PostCard = ({ post }: PostCardProps) => {
         <p data-test-id={postCardTestIds.description}>
           {post.excerpt || post.content}
         </p>
-        <div className="flex flex-row mt-4">
-          <div className="ml-auto">
-            <div className="flex items-center gap-2">
-              <div className="avatar">
-                <div className="w-8 rounded-full">
-                  <Image
-                    src={post.author.avatar}
-                    alt={post.author.name}
-                    width={12}
-                    height={12}
-                    layout="responsive"
-                    objectFit="contain"
-                    data-test-id={postCardTestIds.authorAvatar}
-                  />
-                </div>
-              </div>
-              <div
-                className="text-sm font-semibold"
-                data-test-id={postCardTestIds.authorName}
-              >
-                {post.author.name}
-              </div>
-              <time
-                className="text-sm"
-                dateTime={post.date}
-                data-test-id={postCardTestIds.date}
-              >
-                {formatDate(post.date)}
-              </time>
-            </div>
+        <div className="flex justify-end items-center gap-2 mt-4">
+          <div className="w-8 h-8">
+            <Image
+              src={post.author.avatar}
+              alt={post.author.name}
+              width={32}
+              height={32}
+              className="rounded-full"
+              layout="fixed"
+              data-test-id={postCardTestIds.authorAvatar}
+            />
           </div>
+          <div
+            className="text-sm font-semibold"
+            data-test-id={postCardTestIds.authorName}
+          >
+            {post.author.name}
+          </div>
+          <time
+            className="text-sm"
+            dateTime={post.date}
+            data-test-id={postCardTestIds.date}
+          >
+            {formatDate(post.date)}
+          </time>
         </div>
       </div>
     </div>
