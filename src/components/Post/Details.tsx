@@ -43,7 +43,10 @@ const PostDetails = ({ post }: PostDetailsProps) => {
           />
         </div>
         <p data-test-id={postDetailsTestIds.description}>{post.content}</p>
-        <div className="flex justify-between mt-4">
+        <div
+          className="flex justify-between mt-4"
+          data-test-id={postDetailsTestIds.tags}
+        >
           <div>{post.tags.join(', ')}</div>
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
