@@ -65,4 +65,13 @@ describe('PostDetails', () => {
     expect(description).toBeVisible();
     expect(description).toHaveTextContent(post.content);
   });
+
+  it('renders the tags', () => {
+    render(<PostDetails post={post} />);
+
+    const tags = screen.getByTestId(postDetailsTestIds.tags);
+
+    expect(tags).toBeVisible();
+    expect(tags).toHaveTextContent(post.tags[0]);
+  });
 });
