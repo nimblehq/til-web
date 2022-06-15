@@ -25,12 +25,12 @@ const PostDetails = ({ post }: PostDetailsProps) => {
       data-test-id={postDetailsTestIds.root}
     >
       <div className="px-8 pt-8 pb-4">
-        <h2
-          className="text-3xl font-bold text-center"
+        <h1
+          className="text-2xl font-bold text-center"
           data-test-id={postDetailsTestIds.title}
         >
           {post.title}
-        </h2>
+        </h1>
         <div className="m-auto max-w-sm">
           <Image
             src={post.coverImage}
