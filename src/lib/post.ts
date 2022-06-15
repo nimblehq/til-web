@@ -31,17 +31,17 @@ type Field =
   | 'author'
   | 'tags';
 
-const BASIC_FIELDS = [
+const POST_FIELDS = [
   'title',
   'date',
   'slug',
   'author',
   'coverImage',
+  'ogImage',
   'excerpt',
   'content',
+  'tags',
 ] as Field[];
-
-const EXTENDED_FIELDS = [...BASIC_FIELDS, 'ogImage', 'tags'] as Field[];
 
 const SLUG_EXTENSION = /\.md$/;
 
@@ -92,5 +92,5 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts, BASIC_FIELDS, EXTENDED_FIELDS };
+export { getPostBySlug, getAllPosts, POST_FIELDS };
 export type { Post, Field };
