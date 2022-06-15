@@ -26,7 +26,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
     >
       <div className="px-8 pt-8 pb-4">
         <h2
-          className="text-2xl font-bold text-center"
+          className="text-3xl font-bold text-center"
           data-test-id={postDetailsTestIds.title}
         >
           {post.title}
