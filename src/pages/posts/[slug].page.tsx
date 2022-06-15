@@ -37,7 +37,7 @@ const PostDetails = ({ post }: PostProps) => {
       </Head>
 
       <h1
-        className="m-8 text-7xl items-center text-center"
+        className="m-8 text-6xl items-center text-center"
         data-test-id={postDetailsTestIds.homePageLink}
       >
         <Link href="/">TIL</Link>
