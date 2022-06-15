@@ -30,12 +30,12 @@ const PostDetails = ({ post }: PostProps) => {
         <title>{getPageTitle(post.title)}</title>
       </Head>
 
-      <h1
-        className="m-8 text-6xl items-center text-center"
+      <h2
+        className="m-8 text-7xl items-center text-center"
         data-test-id={postDetailsTestIds.homePageLink}
       >
         <Link href="/">TIL</Link>
-      </h1>
+      </h2>
       <PostDetailsComponent post={post} />
     </>
   );
