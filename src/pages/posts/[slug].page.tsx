@@ -9,13 +9,7 @@ import Link from 'next/link';
 import Layout from 'components/Layout';
 import PostDetailsComponent from 'components/Post/Details';
 import { getPageTitle } from 'helpers/pageTitle';
-import {
-  BASIC_FIELDS,
-  EXTENDED_FIELDS,
-  getAllPosts,
-  getPostBySlug,
-  Post,
-} from 'lib/post';
+import { POST_FIELDS, getAllPosts, getPostBySlug, Post } from 'lib/post';
 
 interface PostProps {
   post: Post;
@@ -52,7 +46,7 @@ PostDetails.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 export default PostDetails;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllPosts(BASIC_FIELDS);
+  const posts = getAllPosts(POST_FIELDS);
 
   // Get the paths we want to pre-render based on posts
   const paths = posts.map((post) => ({
@@ -69,7 +63,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params as PostParams;
-  const post = getPostBySlug(slug, EXTENDED_FIELDS);
+  const post = getPostBySlug(slug, POST_FIELDS);
 
   return {
     props: { post },
