@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import Pagination, { paginationTestIds } from './Pagination';
+import Pagination, { paginationTestIds } from '.';
 
 describe('Pagination', () => {
   it('renders the pagination', () => {
