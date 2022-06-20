@@ -3,6 +3,11 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
+type Author = {
+  name: string;
+  avatar: string;
+};
+
 type Post = {
   slug: string;
   title: string;
@@ -11,7 +16,8 @@ type Post = {
   date: string;
   coverImage: string;
   ogImage: string;
-  author: string;
+  author: Author;
+  tags: string[];
 };
 
 type Field =
@@ -22,15 +28,19 @@ type Field =
   | 'date'
   | 'coverImage'
   | 'ogImage'
-  | 'author';
+  | 'author'
+  | 'tags';
 
-const BASIC_FIELDS = [
+const POST_FIELDS = [
   'title',
   'date',
   'slug',
   'author',
   'coverImage',
+  'ogImage',
   'excerpt',
+  'content',
+  'tags',
 ] as Field[];
 
 const SLUG_EXTENSION = /\.md$/;
@@ -82,5 +92,5 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts, BASIC_FIELDS };
+export { getPostBySlug, getAllPosts, POST_FIELDS };
 export type { Post, Field };
