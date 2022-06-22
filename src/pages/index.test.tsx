@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 
 import { postListTestIds } from 'components/Post/List';
-import { POST_FIELDS, getAllPosts } from 'lib/post';
+import { getAllPosts } from 'lib/post';
 import Home, { homeDataTestIds } from 'pages/index.page';
 
 describe('Home', () => {
   it('renders the heading', () => {
-    const posts = getAllPosts(POST_FIELDS);
+    const posts = getAllPosts();
 
     render(<Home posts={posts} currentPage={1} totalPages={1} />);
 
@@ -28,7 +28,7 @@ describe('Home', () => {
 
     describe('when there are posts', () => {
       it('renders the list', () => {
-        const posts = getAllPosts(POST_FIELDS);
+        const posts = getAllPosts();
 
         render(<Home posts={posts} currentPage={1} totalPages={1} />);
 

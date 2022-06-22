@@ -51,7 +51,7 @@ const getPostSlugs = () => {
   return fs.readdirSync(postsDirectory);
 };
 
-const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
+const getPostBySlug = (slug: string, fields: Field[] = POST_FIELDS): Post => {
   const realSlug = slug.replace(SLUG_EXTENSION, '');
   const fullPath = join(postsDirectory, `${realSlug}.md`);
 
@@ -83,7 +83,7 @@ const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
   }
 };
 
-const getAllPosts = (fields: Field[] = []): Post[] => {
+const getAllPosts = (fields: Field[] = POST_FIELDS): Post[] => {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
@@ -92,5 +92,11 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts, POST_FIELDS };
+const getPostByTag = (tag: string, fields: Field[] = POST_FIELDS): Post[] => {
+  const posts = getAllPosts(fields);
+
+  return posts.filter((post) => post.tags.includes(tag));
+};
+
+export { getPostBySlug, getAllPosts, getPostByTag };
 export type { Post, Field };
