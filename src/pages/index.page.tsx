@@ -7,7 +7,7 @@ import Layout from 'components/Layout';
 import PostList from 'components/Post/List';
 import { getPageTitle } from 'helpers/pageTitle';
 import { getPaginationData } from 'helpers/pagination';
-import { POST_FIELDS, getAllPosts, Post } from 'lib/post';
+import { getAllPosts, Post } from 'lib/post';
 
 interface HomeProps {
   posts: Post[];
@@ -47,7 +47,7 @@ Home.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(POST_FIELDS);
+  const posts = getAllPosts();
   const { paginatedItems, totalPages } = getPaginationData(posts);
 
   return {
