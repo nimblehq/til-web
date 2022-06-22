@@ -18,6 +18,10 @@ interface TagProps {
   totalPages: number;
 }
 
+interface PathProps {
+  params: { tag: string };
+}
+
 interface TagParams extends ParsedUrlQuery {
   tag: string;
 }
@@ -57,13 +61,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts();
 
   // Get the paths we want to pre-render based on posts
-  let paths: { params: { tag: string } }[] = [];
+  let paths: PathProps[] = [];
   posts.forEach((post) => {
     paths = post.tags.reduce(
-      (allTags: { params: { tag: string } }[], tag) => [
-        ...allTags,
-        { params: { tag } },
-      ],
+      (allTags, tag) => [...allTags, { params: { tag } }],
       paths
     );
   });
