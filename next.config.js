@@ -4,7 +4,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ['page.tsx'],
+  pageExtensions: ['page.tsx', 'api.ts'],
   basePath: basePath,
   images: {
     path: `${basePath}/_next/image`,

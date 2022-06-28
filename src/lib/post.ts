@@ -3,12 +3,6 @@ import { join } from 'path';
 
 import matter from 'gray-matter';
 
-import {
-  getFromSessionStorage,
-  removeFromSessionStorage,
-  saveToSessionStorage,
-} from 'helpers/sessionStorage';
-
 type Author = {
   name: string;
   avatar: string;
@@ -50,7 +44,6 @@ const POST_FIELDS = [
 ] as Field[];
 
 const SLUG_EXTENSION = /\.md$/;
-const RANDOM_POSTS_KEY = 'randomPosts';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
@@ -123,26 +116,12 @@ const randomPostSlug = (
   return { slug, excludedSlugs };
 };
 
-const randomUniquePostSlug = (): string => {
-  const savedSlugs = getFromSessionStorage<string[]>(RANDOM_POSTS_KEY) || [];
-  const { slug, excludedSlugs } = randomPostSlug(savedSlugs);
-
-  if (excludedSlugs.length === getPostSlugs().length) {
-    removeFromSessionStorage(RANDOM_POSTS_KEY);
-  }
-
-  saveToSessionStorage(RANDOM_POSTS_KEY, excludedSlugs);
-
-  return slug;
-};
-
 export {
   getAllPosts,
   getPostBySlug,
   getPostByTag,
   getPostSlugs,
   randomPostSlug,
-  randomUniquePostSlug,
   POST_FIELDS,
 };
 export type { Post, Field };
