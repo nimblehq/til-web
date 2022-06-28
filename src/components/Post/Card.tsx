@@ -52,7 +52,7 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
             </div>
           </a>
         </Link>
-        <p data-test-id={postCardTestIds.description}>
+        <p className="line-clamp-3" data-test-id={postCardTestIds.description}>
           {post.excerpt || post.content}
         </p>
         <div className="flex justify-end items-center gap-2 mt-4">
