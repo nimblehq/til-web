@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -6,6 +7,7 @@ import { Post } from 'lib/post';
 
 interface PostCardProps {
   post: Post;
+  itemsRowWise?: boolean;
 }
 
 export const postCardTestIds = {
@@ -19,10 +21,13 @@ export const postCardTestIds = {
   date: 'post-card__date',
 };
 
-const PostCard = ({ post }: PostCardProps) => {
+const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
   return (
     <div
-      className="card bg-base-200 shadow-xl my-8 rounded-lg"
+      className={classNames(
+        { 'w-[48%]': itemsRowWise },
+        'card bg-base-200 shadow-xl my-8 rounded-lg'
+      )}
       data-test-id={postCardTestIds.root}
     >
       <div className="px-8 pt-8 pb-4">

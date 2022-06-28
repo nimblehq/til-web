@@ -8,14 +8,11 @@ import Head from 'next/head';
 import Layout from 'components/Layout';
 import PostList from 'components/Post/List';
 import { getPageTitle } from 'helpers/pageTitle';
-import { getPaginationData } from 'helpers/pagination';
 import { getAllPosts, getPostByTag, Post } from 'lib/post';
 
 interface TagProps {
   tag: string;
   posts: Post[];
-  currentPage: number;
-  totalPages: number;
 }
 
 interface PathProps {
@@ -30,7 +27,7 @@ export const tagDataTestIds = {
   heading: 'tag-heading',
 };
 
-const Tag = ({ tag, posts, currentPage, totalPages }: TagProps) => {
+const Tag = ({ tag, posts }: TagProps) => {
   return (
     <>
       <Head>
@@ -44,11 +41,7 @@ const Tag = ({ tag, posts, currentPage, totalPages }: TagProps) => {
         Posts with {tag} tag
       </h1>
 
-      <PostList
-        posts={posts}
-        currentPage={currentPage}
-        totalPages={totalPages}
-      />
+      <PostList posts={posts} itemsRowWise={true} />
     </>
   );
 };
@@ -80,9 +73,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { tag } = params as TagParams;
   const posts = getPostByTag(tag);
-  const { paginatedItems, totalPages } = getPaginationData(posts);
 
   return {
-    props: { tag, posts: paginatedItems, currentPage: 1, totalPages },
+    props: { tag, posts },
   };
 };
