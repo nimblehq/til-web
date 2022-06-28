@@ -3,7 +3,6 @@ import {
   getPostBySlug,
   randomPostSlug,
   getPostSlugs,
-  randomUniquePostSlug,
 } from './post';
 
 describe('post', () => {
@@ -73,16 +72,6 @@ describe('post', () => {
         expect(Array.isArray(excludedSlugs)).toBe(true);
         expect(excludedSlugs).toHaveLength(2);
       });
-    });
-  });
-
-  describe('randomUniquePostSlug', () => {
-    it('returns a post', () => {
-      const slug = randomUniquePostSlug();
-      const slugs = getPostSlugs();
-
-      expect(typeof slug).toBe('string');
-      expect(slugs).toContainEqual(slug);
     });
   });
 });
