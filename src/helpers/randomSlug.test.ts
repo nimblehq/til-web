@@ -17,12 +17,9 @@ describe('randomSlug', () => {
 
     const slug = await randomSlug();
 
-    expect(mockedAxios.post).toHaveBeenCalledWith(
-      'http://localhost:3000/api/posts/random',
-      {
-        savedSlugs: [],
-      }
-    );
+    expect(mockedAxios.post).toHaveBeenCalledWith('/api/posts/random', {
+      savedSlugs: [],
+    });
     expect(slug).toBe('example');
     expect(sessionStorage.getItem(RANDOM_POSTS_KEY)).toBe(
       JSON.stringify(['example'])
