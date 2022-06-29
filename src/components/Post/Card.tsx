@@ -1,7 +1,7 @@
 import classNames from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
 
-import Image from 'components/Image';
 import TagList from 'components/Tag/List';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
