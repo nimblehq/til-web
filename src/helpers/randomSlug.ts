@@ -12,7 +12,7 @@ type RandomPostQueryResult = {
 };
 
 const RANDOM_POSTS_KEY = 'randomPosts';
-const RANDOM_POSTS_SLUG_PATH = 'http://localhost:3000/api/posts/random';
+const RANDOM_POSTS_SLUG_PATH = '/api/posts/random';
 
 const randomSlug = async (): Promise<string> => {
   const savedSlugs = getFromSessionStorage<string[]>(RANDOM_POSTS_KEY) || [];
