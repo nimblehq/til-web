@@ -1,13 +1,11 @@
 import NextImage, { ImageProps } from 'next/image';
-import { useRouter } from 'next/router';
 
 const Image = ({ src, children, ...rest }: ImageProps) => {
   const isProd = process.env.NODE_ENV === 'production';
-  const { basePath } = useRouter();
-  const finalSrc = isProd ? src : `${basePath}${src}`;
+  const finalSrc = isProd ? src : `${process.env.NEXT_PUBLIC_BASE_PATH}${src}`;
 
   return (
-    <NextImage src={finalSrc} {...rest}>
+    <NextImage src={finalSrc} data-test-id="image-wrapper" {...rest}>
       {children}
     </NextImage>
   );
