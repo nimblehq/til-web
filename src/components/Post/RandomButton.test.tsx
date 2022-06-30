@@ -1,4 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
@@ -30,6 +31,7 @@ describe('RandomButton', () => {
 
     describe('and the returned slug is NOT empty', () => {
       it('redirects to a random post', async () => {
+        const user = userEvent.setup();
         const response = {
           data: {
             slug: 'example',
@@ -42,16 +44,15 @@ describe('RandomButton', () => {
         render(<RandomButton />);
 
         const randomButton = screen.getByTestId(postRandomButtonTestIds.root);
-        await randomButton.click();
+        await user.click(randomButton);
 
-        await waitFor(() => {
-          expect(mockPush).toHaveBeenCalledWith('/posts/example');
-        });
+        expect(mockPush).toHaveBeenCalledWith('/posts/example');
       });
     });
 
     describe('and the returned slug is empty', () => {
       it('redirects to the home page', async () => {
+        const user = userEvent.setup();
         const response = {
           data: {
             slug: '',
@@ -64,11 +65,9 @@ describe('RandomButton', () => {
         render(<RandomButton />);
 
         const randomButton = screen.getByTestId(postRandomButtonTestIds.root);
-        await randomButton.click();
+        await user.click(randomButton);
 
-        await waitFor(() => {
-          expect(mockPush).toHaveBeenCalledWith('/');
-        });
+        expect(mockPush).toHaveBeenCalledWith('/');
       });
     });
   });
