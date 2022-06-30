@@ -3,7 +3,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 
-import { randomSlug } from 'helpers/randomSlug';
+import { randomSlug } from 'services/randomSlug';
 
 export const postRandomButtonTestIds = {
   root: 'posts__random-button',

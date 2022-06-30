@@ -12,6 +12,7 @@ describe('randomSlug', () => {
         excludedSlugs: ['example'],
       },
     };
+
     const mockedAxios = axios as jest.Mocked<typeof axios>;
     mockedAxios.post.mockResolvedValueOnce(response);
 

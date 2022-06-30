@@ -4,7 +4,7 @@ import {
   getFromSessionStorage,
   removeFromSessionStorage,
   saveToSessionStorage,
-} from './sessionStorage';
+} from '../helpers/sessionStorage';
 
 type RandomPostQueryResult = {
   slug: string;
