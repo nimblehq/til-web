@@ -6,7 +6,6 @@ const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['page.tsx'],
   basePath: basePath,
-  assetPrefix: basePath,
   images: {
     path: `${basePath}/_next/image`,
   },
