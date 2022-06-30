@@ -9,6 +9,16 @@ const nextConfig = {
   images: {
     path: `${basePath}/_next/image`,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: basePath,
+        basePath: false,
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
