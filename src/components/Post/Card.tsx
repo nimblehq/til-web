@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import TagList from 'components/Tag/List';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
@@ -19,6 +20,7 @@ export const postCardTestIds = {
   authorName: 'post-card__author-name',
   authorAvatar: 'post-card__author-avatar',
   date: 'post-card__date',
+  tags: 'post-card__tags',
 };
 
 const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
@@ -55,31 +57,37 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
         <p className="line-clamp-3" data-test-id={postCardTestIds.description}>
           {post.excerpt || post.content}
         </p>
-        <div className="flex justify-end items-center gap-2 mt-4">
-          <div className="w-8 h-8">
-            <Image
-              src={post.author.avatar}
-              alt={post.author.name}
-              width={32}
-              height={32}
-              className="rounded-full"
-              layout="fixed"
-              data-test-id={postCardTestIds.authorAvatar}
-            />
+        <div
+          className="flex justify-between mt-4"
+          data-test-id={postCardTestIds.tags}
+        >
+          <TagList tags={post.tags} />
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8">
+              <Image
+                src={post.author.avatar}
+                alt={post.author.name}
+                width={32}
+                height={32}
+                className="rounded-full"
+                layout="fixed"
+                data-test-id={postCardTestIds.authorAvatar}
+              />
+            </div>
+            <div
+              className="text-sm font-semibold"
+              data-test-id={postCardTestIds.authorName}
+            >
+              {post.author.name}
+            </div>
+            <time
+              className="text-sm"
+              dateTime={post.date}
+              data-test-id={postCardTestIds.date}
+            >
+              {formatDate(post.date)}
+            </time>
           </div>
-          <div
-            className="text-sm font-semibold"
-            data-test-id={postCardTestIds.authorName}
-          >
-            {post.author.name}
-          </div>
-          <time
-            className="text-sm"
-            dateTime={post.date}
-            data-test-id={postCardTestIds.date}
-          >
-            {formatDate(post.date)}
-          </time>
         </div>
       </div>
     </div>

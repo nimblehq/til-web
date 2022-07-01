@@ -1,8 +1,7 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
+import TagList from 'components/Tag/List';
 import { formatDate } from 'helpers/dateTime';
-import { intersperse } from 'helpers/intersperse';
 import { Post } from 'lib/post';
 
 interface PostDetailsProps {
@@ -21,18 +20,6 @@ export const postDetailsTestIds = {
 };
 
 const PostDetails = ({ post }: PostDetailsProps) => {
-  const renderCommaSeparatedTags = () => {
-    const tags = post.tags.map((tag) => (
-      <Link key={tag} href={`/tags/${tag}`}>
-        <a className="hover:underline" href={`/tags/${tag}`}>
-          {tag}
-        </a>
-      </Link>
-    ));
-
-    return intersperse(tags, ', ');
-  };
-
   return (
     <div
       className="card bg-base-200 shadow-xl my-8 rounded-lg"
@@ -61,7 +48,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
           className="flex justify-between mt-4"
           data-test-id={postDetailsTestIds.tags}
         >
-          <div>{renderCommaSeparatedTags()}</div>
+          <TagList tags={post.tags} />
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
               <Image
