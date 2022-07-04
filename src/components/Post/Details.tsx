@@ -25,7 +25,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
       className="card bg-base-200 shadow-xl my-8 rounded-lg"
       data-test-id={postDetailsTestIds.root}
     >
-      <div className="px-8 pt-8 pb-4">
+      <div className="p-8">
         <h1
           className="text-2xl font-bold text-center"
           data-test-id={postDetailsTestIds.title}

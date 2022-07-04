@@ -32,7 +32,7 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
       )}
       data-test-id={postCardTestIds.root}
     >
-      <div className="px-8 pt-8 pb-4">
+      <div className="p-8">
         <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
           <a href={`/posts/${post.slug}`} data-test-id={postCardTestIds.link}>
             <h2
