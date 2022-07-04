@@ -10,15 +10,15 @@ export const tagListTestIds = {
 
 const TagList = ({ tags }: TagListProps) => {
   return (
-    <div data-test-id={tagListTestIds.root}>
+    <ul className="self-center" data-test-id={tagListTestIds.root}>
       {tags.map((tag) => (
         <Link key={tag} href={`/tags/${tag}`}>
           <a href={`/tags/${tag}`}>
-            <span className="badge badge-md mr-0.5">{tag}</span>
+            <li className="badge badge-md mr-0.5">{tag}</li>
           </a>
         </Link>
       ))}
-    </div>
+    </ul>
   );
 };
 
