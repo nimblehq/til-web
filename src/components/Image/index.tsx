@@ -5,7 +5,7 @@ const Image = ({ src, children, ...rest }: ImageProps) => {
   const finalSrc = isProd ? src : `${process.env.NEXT_PUBLIC_BASE_PATH}${src}`;
 
   return (
-    <NextImage src={finalSrc} data-test-id="image-wrapper" {...rest}>
+    <NextImage src={finalSrc} {...rest}>
       {children}
     </NextImage>
   );
