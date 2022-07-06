@@ -4,8 +4,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { randomPostSlug } from 'lib/post';
 
 type RandomResponse = {
-  slug: string;
-  excludedSlugs: string[];
+  slug: string | null;
 };
 
 type ErrorResponse = {
@@ -29,9 +28,8 @@ export default function handler(
     return;
   }
 
-  const { slug, excludedSlugs } = randomPostSlug(savedSlugs);
-
-  const response = { slug, excludedSlugs };
+  const slug = randomPostSlug(savedSlugs);
+  const response = { slug };
 
   res.status(200).json(response);
 }

@@ -19,7 +19,7 @@ const RandomButton = () => {
 
     setRequesting(false);
 
-    if (slug === '') {
+    if (!slug) {
       router.push('/');
 
       return;

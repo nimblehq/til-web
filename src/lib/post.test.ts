@@ -49,28 +49,34 @@ describe('post', () => {
 
   describe('randomPostSlug', () => {
     describe('when there is NO excluded slugs', () => {
-      it('returns a slug and the correct excluded slugs', () => {
-        const { slug, excludedSlugs } = randomPostSlug();
+      it('returns the random slug', () => {
+        const slug = randomPostSlug();
         const postSlugs = getPostSlugs();
 
         expect(typeof slug).toBe('string');
         expect(postSlugs).toContain(slug);
-        expect(Array.isArray(excludedSlugs)).toBe(true);
-        expect(excludedSlugs).toHaveLength(1);
-        expect(excludedSlugs[0]).toBe(slug);
       });
     });
 
     describe('when there are excluded slugs', () => {
-      it('returns a slug and the correct excluded slugs', () => {
-        const postSlugs = getPostSlugs();
-        const { slug, excludedSlugs } = randomPostSlug([postSlugs[0]]);
+      describe('when the excluded slugs are NOT all in the post slugs', () => {
+        it('returns the random slug', () => {
+          const postSlugs = getPostSlugs();
+          const slug = randomPostSlug([postSlugs[0]]);
 
-        expect(typeof slug).toBe('string');
-        expect(postSlugs).toContain(slug);
-        expect(slug).not.toBe(postSlugs[0]);
-        expect(Array.isArray(excludedSlugs)).toBe(true);
-        expect(excludedSlugs).toHaveLength(2);
+          expect(typeof slug).toBe('string');
+          expect(postSlugs).toContain(slug);
+          expect(slug).not.toBe(postSlugs[0]);
+        });
+      });
+
+      describe('when the excluded slugs are ALL in the post slugs', () => {
+        it('does NOT return slug', () => {
+          const postSlugs = getPostSlugs();
+          const slug = randomPostSlug(postSlugs);
+
+          expect(slug).toBeNull();
+        });
       });
     });
   });
