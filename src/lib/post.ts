@@ -100,20 +100,18 @@ const getPostByTag = (tag: string, fields: Field[] = POST_FIELDS): Post[] => {
   return posts.filter((post) => post.tags.includes(tag));
 };
 
-const randomPostSlug = (
-  excludedSlugs: string[] = []
-): { slug: string; excludedSlugs: string[] } => {
+const randomPostSlug = (excludedSlugs: string[] = []): string | null => {
   const slugs = getPostSlugs().filter((slug) => !excludedSlugs.includes(slug));
 
   if (slugs.length === 0) {
-    return { slug: '', excludedSlugs };
+    return null;
   }
 
   const index = Math.floor(Math.random() * slugs.length);
   const slug = slugs[index];
   excludedSlugs.push(slug);
 
-  return { slug, excludedSlugs };
+  return slug;
 };
 
 export {

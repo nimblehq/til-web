@@ -8,32 +8,32 @@ import {
 
 type RandomPostQueryResult = {
   slug: string;
-  excludedSlugs: string[];
 };
 
 const RANDOM_POSTS_KEY = 'randomPosts';
-const RANDOM_POSTS_SLUG_PATH = '/api/posts/random';
+const RANDOM_POSTS_SLUG_PATH = '/til/api/posts/random';
 
-const randomSlug = async (): Promise<string> => {
+const randomSlug = async (): Promise<string | null> => {
   const savedSlugs = getFromSessionStorage<string[]>(RANDOM_POSTS_KEY) || [];
 
   try {
     const response = await axios.post(RANDOM_POSTS_SLUG_PATH, {
       savedSlugs,
     });
-    const { slug, excludedSlugs }: RandomPostQueryResult = response.data;
+    const { slug }: RandomPostQueryResult = response.data;
 
-    saveToSessionStorage(RANDOM_POSTS_KEY, excludedSlugs);
-
-    if (slug === '') {
+    if (!slug) {
       removeFromSessionStorage(RANDOM_POSTS_KEY);
+    } else {
+      savedSlugs.push(slug);
+      saveToSessionStorage(RANDOM_POSTS_KEY, savedSlugs);
     }
 
     return slug;
   } catch (error) {
     console.error(error);
 
-    return '';
+    return null;
   }
 };
 
