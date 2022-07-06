@@ -14,8 +14,8 @@
     "test": "jest --watch",
     "cypress": "cypress open",
     "cypress:headless": "cypress run",
-    "e2e": "PORT=3003 start-server-and-test dev 3003 cypress",
-    "e2e:headless": "PORT=3003 start-server-and-test dev 3003 cypress:headless"
+    "e2e": "PORT=3003 start-server-and-test dev http://localhost:3003/til cypress",
+    "e2e:headless": "PORT=3003 start-server-and-test dev http://localhost:3003/til cypress:headless"
   },
   "dependencies": {
     "next": "12.1.6",

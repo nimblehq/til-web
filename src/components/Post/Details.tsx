@@ -1,5 +1,4 @@
-import Image from 'next/image';
-
+import Image from 'components/Image';
 import TagList from 'components/Tag/List';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';

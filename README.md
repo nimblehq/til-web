@@ -8,7 +8,13 @@ First, clone the repository:
 
 `git clone git@github.com:nimblehq/til-web.git`
 
-Then, run the development server:
+Then create an `.env` file by cloning `.env.example` file:
+
+```bash
+cp .env.example .env.local
+```
+
+And, run the development server:
 
 ```bash
 npm run dev
