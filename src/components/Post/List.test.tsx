@@ -27,6 +27,7 @@ describe('PostList', () => {
             name: 'Admin',
             avatar: '/public/images/admin.jpg',
           },
+          tags: ['tag1'],
         } as Post,
       ];
 

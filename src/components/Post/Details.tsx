@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import TagList from 'components/Tag/List';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
@@ -24,7 +25,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
       className="card bg-base-200 shadow-xl my-8 rounded-lg"
       data-test-id={postDetailsTestIds.root}
     >
-      <div className="px-8 pt-8 pb-4">
+      <div className="p-8">
         <h1
           className="text-2xl font-bold text-center"
           data-test-id={postDetailsTestIds.title}
@@ -47,7 +48,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
           className="flex justify-between mt-4"
           data-test-id={postDetailsTestIds.tags}
         >
-          <div>{post.tags.join(', ')}</div>
+          <TagList tags={post.tags} />
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
               <Image

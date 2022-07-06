@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 
-import { POST_FIELDS, getAllPosts } from 'lib/post';
+import { getAllPosts } from 'lib/post';
 
 import PostDetails, { postDetailsTestIds } from './[slug].page';
 
 describe('PostDetails', () => {
   it('renders a home link', () => {
-    const posts = getAllPosts(POST_FIELDS);
+    const posts = getAllPosts();
     const post = posts[0];
 
     render(<PostDetails post={post} />);
