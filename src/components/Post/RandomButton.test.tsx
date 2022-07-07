@@ -35,7 +35,6 @@ describe('RandomButton', () => {
         const response = {
           data: {
             slug: 'example',
-            excludedSlugs: ['example'],
           },
         };
         const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -56,7 +55,6 @@ describe('RandomButton', () => {
         const response = {
           data: {
             slug: '',
-            excludedSlugs: [],
           },
         };
         const mockedAxios = axios as jest.Mocked<typeof axios>;
