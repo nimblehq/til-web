@@ -3,7 +3,7 @@ import { createMocks } from 'node-mocks-http';
 import randomApi from './random.api';
 
 describe('POST /posts/random', () => {
-  describe('when there is NO excluded slugs', () => {
+  describe('when there is NO saved slugs', () => {
     it('returns the random slug', async () => {
       const { req, res } = createMocks({
         method: 'POST',
@@ -25,7 +25,7 @@ describe('POST /posts/random', () => {
     });
   });
 
-  describe('when there is an excluded slug', () => {
+  describe('when there is an saved slug', () => {
     it('returns the random slug', async () => {
       const { req, res } = createMocks({
         method: 'POST',

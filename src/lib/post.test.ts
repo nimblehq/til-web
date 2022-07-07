@@ -48,7 +48,7 @@ describe('post', () => {
   });
 
   describe('randomPostSlug', () => {
-    describe('when there is NO excluded slugs', () => {
+    describe('when there is NO saved slugs', () => {
       it('returns the random slug', () => {
         const slug = randomPostSlug();
         const postSlugs = getPostSlugs();
@@ -58,8 +58,8 @@ describe('post', () => {
       });
     });
 
-    describe('when there are excluded slugs', () => {
-      describe('when the excluded slugs are NOT all in the post slugs', () => {
+    describe('when there are saved slugs', () => {
+      describe('when the saved slugs are NOT all in the post slugs', () => {
         it('returns the random slug', () => {
           const postSlugs = getPostSlugs();
           const slug = randomPostSlug([postSlugs[0]]);
@@ -70,7 +70,7 @@ describe('post', () => {
         });
       });
 
-      describe('when the excluded slugs are ALL in the post slugs', () => {
+      describe('when the saved slugs are ALL in the post slugs', () => {
         it('does NOT return slug', () => {
           const postSlugs = getPostSlugs();
           const slug = randomPostSlug(postSlugs);
