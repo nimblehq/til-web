@@ -2,23 +2,25 @@ import { render, screen } from '@testing-library/react';
 
 import { postListTestIds } from 'components/Post/List';
 import { getAllPosts } from 'lib/post';
-import Home, { homeDataTestIds } from 'pages/index.page';
 
-describe('Home', () => {
+import Tag, { tagDataTestIds } from './[tag].page';
+
+describe('Tag', () => {
   it('renders the heading', () => {
     const posts = getAllPosts();
+    const tag = posts[0].tags[0];
 
-    render(<Home posts={posts} currentPage={1} totalPages={1} />);
+    render(<Tag tag={tag} posts={posts} />);
 
-    const heading = screen.getByTestId(homeDataTestIds.heading);
+    const heading = screen.getByTestId(tagDataTestIds.heading);
 
     expect(heading).toBeVisible();
   });
 
-  describe('PostList', () => {
-    describe('when there are no posts', () => {
+  describe('TagList', () => {
+    describe('when there are no tags', () => {
       it('does NOT render the list', () => {
-        render(<Home posts={[]} currentPage={1} totalPages={1} />);
+        render(<Tag tag="" posts={[]} />);
 
         const postList = screen.queryByTestId(postListTestIds.root);
 
@@ -26,11 +28,12 @@ describe('Home', () => {
       });
     });
 
-    describe('when there are posts', () => {
+    describe('when there are tags', () => {
       it('renders the list', () => {
         const posts = getAllPosts();
+        const tag = posts[0].tags[0];
 
-        render(<Home posts={posts} currentPage={1} totalPages={1} />);
+        render(<Tag tag={tag} posts={posts} />);
 
         const postList = screen.getByTestId(postListTestIds.root);
 

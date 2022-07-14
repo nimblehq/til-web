@@ -15,6 +15,7 @@ describe('PostCard', () => {
       name: 'Admin',
       avatar: '/public/images/admin.jpg',
     },
+    tags: ['tag1'],
   } as Post;
 
   it('renders the title', () => {
@@ -85,5 +86,14 @@ describe('PostCard', () => {
         expect(description).toHaveTextContent('This is the first post');
       });
     });
+  });
+
+  it('renders the tags', () => {
+    render(<PostCard post={post} />);
+
+    const tags = screen.getByTestId(postCardTestIds.tags);
+
+    expect(tags).toBeVisible();
+    expect(tags).toHaveTextContent(post.tags[0]);
   });
 });

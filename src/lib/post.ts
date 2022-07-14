@@ -47,13 +47,14 @@ const SLUG_EXTENSION = /\.md$/;
 
 const postsDirectory = join(process.cwd(), '_posts');
 
-const getPostSlugs = () => {
-  return fs.readdirSync(postsDirectory);
+const getPostSlugs = (): string[] => {
+  const postFileNames = fs.readdirSync(postsDirectory);
+
+  return postFileNames.map((fileName) => fileName.replace(SLUG_EXTENSION, ''));
 };
 
-const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
-  const realSlug = slug.replace(SLUG_EXTENSION, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+const getPostBySlug = (slug: string, fields: Field[] = POST_FIELDS): Post => {
+  const fullPath = join(postsDirectory, `${slug}.md`);
 
   try {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -63,8 +64,9 @@ const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
 
     fields.forEach((field) => {
       if (field === 'slug') {
-        post.slug = realSlug;
+        post.slug = slug;
       }
+
       if (field === 'content') {
         post.content = content;
       }
@@ -83,7 +85,7 @@ const getPostBySlug = (slug: string, fields: Field[] = []): Post => {
   }
 };
 
-const getAllPosts = (fields: Field[] = []): Post[] => {
+const getAllPosts = (fields: Field[] = POST_FIELDS): Post[] => {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
@@ -92,5 +94,30 @@ const getAllPosts = (fields: Field[] = []): Post[] => {
   return posts;
 };
 
-export { getPostBySlug, getAllPosts, POST_FIELDS };
+const getPostByTag = (tag: string, fields: Field[] = POST_FIELDS): Post[] => {
+  const posts = getAllPosts(fields);
+
+  return posts.filter((post) => post.tags.includes(tag));
+};
+
+const randomPostSlug = (savedSlugs: string[] = []): string | null => {
+  const newSlugs = getPostSlugs().filter((slug) => !savedSlugs.includes(slug));
+
+  if (newSlugs.length === 0) {
+    return null;
+  }
+
+  const index = Math.floor(Math.random() * newSlugs.length);
+
+  return newSlugs[index];
+};
+
+export {
+  getAllPosts,
+  getPostBySlug,
+  getPostByTag,
+  getPostSlugs,
+  randomPostSlug,
+  POST_FIELDS,
+};
 export type { Post, Field };
