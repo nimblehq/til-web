@@ -8,6 +8,7 @@ const nextConfig = {
   basePath: basePath,
   images: {
     path: `${basePath}/_next/image`,
+    domains: ['github.com'],
   },
   async redirects() {
     return [

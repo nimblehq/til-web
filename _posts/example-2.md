@@ -5,7 +5,7 @@ coverImage: '/til/assets/posts/example/cover.png'
 date: '2022-05-15T15:00:00+07:00'
 author:
   name: Hoang
-  avatar: '/til/assets/authors/hoang.jpeg'
+  avatarUrl: '/til/assets/authors/hoang.jpeg'
 ogImage:
   url: '/til/assets/posts/example/cover.png'
 tags: ['tag1', 'tag2']

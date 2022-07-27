@@ -4,8 +4,9 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 type Author = {
-  name: string;
-  avatar: string;
+  name?: string;
+  avatarUrl?: string;
+  username?: string;
 };
 
 type Post = {
@@ -120,4 +121,4 @@ export {
   randomPostSlug,
   POST_FIELDS,
 };
-export type { Post, Field };
+export type { Post, Field, Author };

@@ -1,5 +1,6 @@
 import Image from 'components/Image';
 import TagList from 'components/Tag/List';
+import { getAuthorName, getAvatarUrl } from 'helpers/author';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
@@ -51,8 +52,8 @@ const PostDetails = ({ post }: PostDetailsProps) => {
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
               <Image
-                src={post.author.avatar}
-                alt={post.author.name}
+                src={getAvatarUrl(post.author, 32)}
+                alt={getAuthorName(post.author)}
                 width={32}
                 height={32}
                 className="rounded-full"
@@ -64,7 +65,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
               className="text-sm font-semibold"
               data-test-id={postDetailsTestIds.authorName}
             >
-              {post.author.name}
+              {getAuthorName(post.author)}
             </div>
             <time
               className="text-sm"
