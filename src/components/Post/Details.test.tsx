@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Post } from 'lib/post';
+import { Post, Author } from 'lib/post';
 
 import PostDetails, { postDetailsTestIds } from './Details';
 
@@ -14,7 +14,7 @@ describe('PostDetails', () => {
     author: {
       name: 'Admin',
       avatar: '/public/images/admin.jpg',
-    },
+    } as Author,
     tags: ['tag1'],
   } as Post;
 
@@ -57,13 +57,12 @@ describe('PostDetails', () => {
     expect(date).toHaveTextContent('January 1, 2020');
   });
 
-  it('renders the contents in the description', () => {
+  it('does NOT render the description', () => {
     render(<PostDetails post={post} />);
 
-    const description = screen.getByTestId(postDetailsTestIds.description);
+    const description = screen.queryByTestId(postDetailsTestIds.description);
 
-    expect(description).toBeVisible();
-    expect(description).toHaveTextContent(post.content);
+    expect(description).not.toBeInTheDocument();
   });
 
   it('renders the tags', () => {
@@ -73,5 +72,33 @@ describe('PostDetails', () => {
 
     expect(tags).toBeVisible();
     expect(tags).toHaveTextContent(post.tags[0]);
+  });
+
+  describe('cover image', () => {
+    describe('when there is a cover image', () => {
+      it('renders the cover image', () => {
+        render(<PostDetails post={post} />);
+
+        const image = screen.getByTestId(postDetailsTestIds.image);
+
+        expect(image).toBeVisible();
+        expect(image).toHaveAttribute('src');
+      });
+    });
+
+    describe('when there is no cover image', () => {
+      it('does not render the cover image', () => {
+        const otherPost: Post = {
+          ...post,
+          coverImage: undefined,
+        };
+
+        render(<PostDetails post={otherPost} />);
+
+        const image = screen.queryByTestId(postDetailsTestIds.image);
+
+        expect(image).not.toBeInTheDocument();
+      });
+    });
   });
 });

@@ -42,22 +42,29 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
             >
               {post.title}
             </h2>
-            <div className="m-auto max-w-sm">
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                width={480}
-                height={320}
-                layout="responsive"
-                objectFit="contain"
-                data-test-id={postCardTestIds.image}
-              />
-            </div>
+            {post.coverImage && (
+              <div className="m-auto max-w-sm">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  width={480}
+                  height={320}
+                  layout="responsive"
+                  objectFit="contain"
+                  data-test-id={postCardTestIds.image}
+                />
+              </div>
+            )}
           </a>
         </Link>
-        <p className="line-clamp-3" data-test-id={postCardTestIds.description}>
-          {post.excerpt || post.content}
-        </p>
+        <div className="my-4">
+          <p
+            className="line-clamp-3"
+            data-test-id={postCardTestIds.description}
+          >
+            {post.excerpt || post.content}
+          </p>
+        </div>
         <div
           className="flex justify-between mt-4"
           data-test-id={postCardTestIds.tags}
