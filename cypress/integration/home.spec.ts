@@ -5,6 +5,10 @@ const homeDataTestIds = {
   randomButton: 'posts__random-button',
 };
 
+const postDetailsTestIds = {
+  title: 'post-details__title',
+};
+
 describe('Home screen', () => {
   it('renders the correct components', () => {
     // Start from the index page
@@ -24,8 +28,13 @@ describe('Home screen', () => {
       cy.visit('/');
 
       // Click on the first post
-      cy.findByTestId(homeDataTestIds.postLink).first().click();
+      cy.findAllByTestId(homeDataTestIds.postLink).first().click();
 
+      cy.get('h1', { timeout: 15000 }).should(
+        'have.attr',
+        'data-test-id',
+        postDetailsTestIds.title
+      );
       cy.url().should('include', '/posts/');
     });
   });
@@ -38,6 +47,11 @@ describe('Home screen', () => {
       // Click on the random button
       cy.findByTestId(homeDataTestIds.randomButton).click();
 
+      cy.get('h1', { timeout: 15000 }).should(
+        'have.attr',
+        'data-test-id',
+        postDetailsTestIds.title
+      );
       cy.url().should('include', '/posts/');
     });
   });
