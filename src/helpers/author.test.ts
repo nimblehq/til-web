@@ -75,7 +75,7 @@ describe('Author helper', () => {
       });
     });
 
-    describe('when author has neither a name nor a username', () => {
+    describe('when author does NOT have a name or a username', () => {
       it('returns an empty string', () => {
         const author: Author = {};
 

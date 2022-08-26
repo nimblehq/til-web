@@ -12,7 +12,7 @@ describe('URL helper', () => {
       });
     });
 
-    describe('when URL is invalid', () => {
+    describe('when URL is NOT valid', () => {
       it('returns false', () => {
         const url = 'invalid-url';
 
