@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import Image from 'components/Image';
 import TagList from 'components/Tag/List';
+import { getAuthorName, getAvatarUrl } from 'helpers/author';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
@@ -41,22 +42,29 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
             >
               {post.title}
             </h2>
-            <div className="m-auto max-w-sm">
-              <Image
-                src={post.coverImage}
-                alt={post.title}
-                width={480}
-                height={320}
-                layout="responsive"
-                objectFit="contain"
-                data-test-id={postCardTestIds.image}
-              />
-            </div>
+            {post.coverImage && (
+              <div className="m-auto max-w-sm">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  width={480}
+                  height={320}
+                  layout="responsive"
+                  objectFit="contain"
+                  data-test-id={postCardTestIds.image}
+                />
+              </div>
+            )}
           </a>
         </Link>
-        <p className="line-clamp-3" data-test-id={postCardTestIds.description}>
-          {post.excerpt || post.content}
-        </p>
+        <div className="my-4">
+          <p
+            className="line-clamp-3"
+            data-test-id={postCardTestIds.description}
+          >
+            {post.excerpt || post.content}
+          </p>
+        </div>
         <div
           className="flex justify-between mt-4"
           data-test-id={postCardTestIds.tags}
@@ -65,8 +73,8 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
           <div className="flex items-center gap-2">
             <div className="w-8 h-8">
               <Image
-                src={post.author.avatar}
-                alt={post.author.name}
+                src={getAvatarUrl(post.author, 32)}
+                alt={getAuthorName(post.author)}
                 width={32}
                 height={32}
                 className="rounded-full"
@@ -78,7 +86,7 @@ const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
               className="text-sm font-semibold"
               data-test-id={postCardTestIds.authorName}
             >
-              {post.author.name}
+              {getAuthorName(post.author)}
             </div>
             <time
               className="text-sm"
