@@ -11,11 +11,11 @@ type Author = {
 
 type Post = {
   slug: string;
-  title: string;
+  title?: string;
   excerpt: string;
   content: string;
   date: string;
-  coverImage: string;
+  coverImage?: string;
   ogImage: string;
   author: Author;
   tags: string[];

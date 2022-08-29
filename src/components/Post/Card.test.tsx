@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { Post } from 'lib/post';
+import { Author, Post } from 'lib/post';
 
 import PostCard, { postCardTestIds } from './Card';
 
@@ -14,7 +14,7 @@ describe('PostCard', () => {
     author: {
       name: 'Admin',
       avatar: '/public/images/admin.jpg',
-    },
+    } as Author,
     tags: ['tag1'],
   } as Post;
 
@@ -25,15 +25,6 @@ describe('PostCard', () => {
 
     expect(title).toBeVisible();
     expect(title).toHaveTextContent('Post 1');
-  });
-
-  it('renders the image cover', () => {
-    render(<PostCard post={post} />);
-
-    const image = screen.getByTestId(postCardTestIds.image);
-
-    expect(image).toBeVisible();
-    expect(image).toHaveAttribute('src');
   });
 
   it('renders the author info', () => {
@@ -55,6 +46,34 @@ describe('PostCard', () => {
 
     expect(date).toBeVisible();
     expect(date).toHaveTextContent('January 1, 2020');
+  });
+
+  describe('cover image', () => {
+    describe('when there is a cover image', () => {
+      it('renders the cover image', () => {
+        render(<PostCard post={post} />);
+
+        const image = screen.getByTestId(postCardTestIds.image);
+
+        expect(image).toBeVisible();
+        expect(image).toHaveAttribute('src');
+      });
+    });
+
+    describe('when there is no cover image', () => {
+      it('does not render the cover image', () => {
+        const otherPost: Post = {
+          ...post,
+          coverImage: undefined,
+        };
+
+        render(<PostCard post={otherPost} />);
+
+        const image = screen.queryByTestId(postCardTestIds.image);
+
+        expect(image).not.toBeInTheDocument();
+      });
+    });
   });
 
   describe('description', () => {

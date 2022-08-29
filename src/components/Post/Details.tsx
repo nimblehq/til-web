@@ -4,6 +4,8 @@ import { getAuthorName, getAvatarUrl } from 'helpers/author';
 import { formatDate } from 'helpers/dateTime';
 import { Post } from 'lib/post';
 
+import Content from './Content';
+
 interface PostDetailsProps {
   post: Post;
 }
@@ -32,18 +34,22 @@ const PostDetails = ({ post }: PostDetailsProps) => {
         >
           {post.title}
         </h1>
-        <div className="m-auto max-w-sm">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            width={480}
-            height={320}
-            layout="responsive"
-            objectFit="contain"
-            data-test-id={postDetailsTestIds.image}
-          />
+        {post.coverImage && (
+          <div className="m-auto max-w-sm">
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              width={480}
+              height={320}
+              layout="responsive"
+              objectFit="contain"
+              data-test-id={postDetailsTestIds.image}
+            />
+          </div>
+        )}
+        <div className="my-4">
+          <Content>{post.content}</Content>
         </div>
-        <p data-test-id={postDetailsTestIds.description}>{post.content}</p>
         <div
           className="flex justify-between mt-4"
           data-test-id={postDetailsTestIds.tags}
