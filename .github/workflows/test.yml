@@ -48,10 +48,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Build application
+        run: npm run build
+
       - name: Run UI test
         uses: cypress-io/github-action@v2
         with:
-          start: npm run dev -- -p 3003
+          start: npm run start -- -p 3003
           wait-on: http://localhost:3003/til
           browser: chrome
           headless: true

@@ -9,7 +9,7 @@ const postDetailsTestIds = {
   title: 'post-details__title',
 };
 
-describe('Home screen', () => {
+describe('Home screen', { defaultCommandTimeout: 30000 }, () => {
   it('renders the correct components', () => {
     // Start from the index page
     cy.visit('/');
@@ -30,7 +30,7 @@ describe('Home screen', () => {
       // Click on the first post
       cy.findAllByTestId(homeDataTestIds.postLink).first().click();
 
-      cy.get('h1', { timeout: 15000 }).should(
+      cy.get('h1').should(
         'have.attr',
         'data-test-id',
         postDetailsTestIds.title
@@ -47,7 +47,7 @@ describe('Home screen', () => {
       // Click on the random button
       cy.findByTestId(homeDataTestIds.randomButton).click();
 
-      cy.get('h1', { timeout: 15000 }).should(
+      cy.get('h1').should(
         'have.attr',
         'data-test-id',
         postDetailsTestIds.title
