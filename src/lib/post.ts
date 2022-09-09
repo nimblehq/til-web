@@ -4,17 +4,18 @@ import { join } from 'path';
 import matter from 'gray-matter';
 
 type Author = {
-  name: string;
-  avatar: string;
+  name?: string;
+  avatarUrl?: string;
+  username?: string;
 };
 
 type Post = {
   slug: string;
-  title: string;
+  title?: string;
   excerpt: string;
   content: string;
   date: string;
-  coverImage: string;
+  coverImage?: string;
   ogImage: string;
   author: Author;
   tags: string[];
@@ -120,4 +121,4 @@ export {
   randomPostSlug,
   POST_FIELDS,
 };
-export type { Post, Field };
+export type { Post, Field, Author };

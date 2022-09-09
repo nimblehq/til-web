@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "./src"
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "jest.setup.js"],
   "exclude": ["node_modules"]
 }
