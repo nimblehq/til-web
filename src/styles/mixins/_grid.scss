@@ -1,0 +1,23 @@
+// Forked from Bootstrap Grid system but modified to have different gutter width for large screens
+@mixin make-content-container() {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+
+  @include media-breakpoint-up('lg') {
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+  }
+}
+
+@mixin make-content-row() {
+  margin-right: ($grid-gutter-width / -2);
+  margin-left: ($grid-gutter-width / -2);
+
+  @include media-breakpoint-up('lg') {
+    margin-right: -#{$grid-gutter-width};
+    margin-left: -#{$grid-gutter-width};
+  }
+}

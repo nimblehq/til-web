@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
+
+@import 'base';
+@import 'layouts';
+@import 'screens';
+@import 'components';

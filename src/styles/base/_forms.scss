@@ -1,0 +1,23 @@
+form {
+  font-size: $base-font-size;
+
+  .input {
+    width: 100%;
+  }
+
+  .input--text {
+    --accent-color: hsl(0, 0%, 71%);
+
+    padding: 1rem 0;
+
+    border: 0;
+    border-bottom: 1px solid var(--accent-color);
+    outline: none;
+
+    background: transparent;
+
+    &::placeholder {
+      color: var(--accent-color);
+    }
+  }
+}

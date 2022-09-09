@@ -1,0 +1,25 @@
+.article-recommendations {
+  padding: 1rem 0 2rem;
+
+  &__title {
+    margin-bottom: rem(10px);
+
+    font-size: map-get($font-sizes, 'default');
+  }
+
+  &__list {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    margin-bottom: rem(4px);
+  }
+
+  &__link {
+    @include multiple-line-underline();
+
+    background-image: linear-gradient(to bottom, currentColor 0%, currentColor 100%);
+  }
+}

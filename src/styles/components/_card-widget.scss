@@ -1,0 +1,18 @@
+.card-widget {
+  padding: 2rem;
+
+  background-color: var(--color-gray-lightest);
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    padding-bottom: rem(8px);
+
+    border-bottom: solid 1px var(--color-brand-athens-gray);
+
+    font-size: map-get($font-sizes, 'xxl');
+    text-indent: initial;
+  }
+}

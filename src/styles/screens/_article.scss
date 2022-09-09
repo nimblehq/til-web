@@ -1,0 +1,107 @@
+.article .blog-article {
+  display: grid;
+  grid-template-areas:
+    'cover'
+    'content'
+    'recruitment'
+    'recommendations'
+    'subscription'
+    'sidebar';
+
+  @include media-breakpoint-up('lg') {
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+  }
+
+  @include media-breakpoint-up('xl') {
+    grid-column-gap: $blog-article-column-gap-width;
+    grid-template-areas:
+      'cover cover'
+      'content sidebar'
+      'recruitment sidebar'
+      'recommendations sidebar'
+      'subscription sidebar';
+    grid-template-columns: minmax(auto, map-get($grid-breakpoints, 'lg')) $blog-article-side-panel-width;
+
+    justify-content: center;
+  }
+}
+
+.article .blog-article__cover {
+  grid-area: cover;
+
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-up('md') {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+}
+
+.article .blog-article__content {
+  position: relative;
+  grid-area: content;
+  margin-bottom: 2rem;
+
+  &::after {
+    content: '';
+
+    display: block;
+    position: relative;
+    top: rem(2px);
+
+    height: rem(4px);
+
+    background: {
+      image: url('#{map-get($sprites, 'shape-11')}');
+      repeat: no-repeat;
+
+      position: center;
+      size: rem(36px);
+    }
+  }
+}
+
+.article .blog-article__recruitment {
+  grid-area: recruitment;
+  margin-bottom: 1rem;
+
+  border-bottom: solid 1px var(--color-brand-athens-gray);
+}
+
+.article .blog-article__recommendations {
+  grid-area: recommendations;
+
+  margin-bottom: 2rem;
+
+  border-bottom: solid 1px var(--color-brand-athens-gray);
+}
+
+.article .blog-article__sidebar {
+  grid-area: sidebar;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
+  @include media-breakpoint-up('xl') {
+    margin-top: 0;
+  }
+
+  &--sticky {
+    @include media-breakpoint-up('xl') {
+      position: sticky;
+      position: sticky;
+      top: calc(#{$blog-header-height-md} + 5rem);
+    }
+  }
+}
+
+.article .blog-article__subscription {
+  grid-area: subscription;
+  margin-bottom: 1rem;
+
+  @include media-breakpoint-up('xl') {
+    margin-bottom: rem(144px);
+  }
+}

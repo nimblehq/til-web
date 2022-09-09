@@ -1,0 +1,19 @@
+.pagination {
+
+  @include list-unstyled();
+  display: flex;
+  margin-bottom: 0;
+
+  &__link,
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 2rem;
+    min-height: 2rem;
+
+    font-size: map-get($font-sizes, 'sm');
+    font-weight: map-get($font-weight, 'bolder');
+  }
+}
