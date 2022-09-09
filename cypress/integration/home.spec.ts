@@ -1,6 +1,7 @@
 const homeDataTestIds = {
   heading: 'home-heading',
   postList: 'post-list',
+  postListPaginationBar: 'post-list__pagination-bar',
   postLink: 'post-card__link',
   randomButton: 'posts__random-button',
 };
@@ -17,9 +18,7 @@ describe('Home screen', { defaultCommandTimeout: 30000 }, () => {
     cy.url().should('include', '/');
     cy.findByTestId(homeDataTestIds.heading).contains('TIL');
     cy.findByTestId(homeDataTestIds.postList).should('exist');
-    cy.findByTestId(homeDataTestIds.randomButton)
-      .should('exist')
-      .contains('TIL');
+    cy.findByTestId(homeDataTestIds.postListPaginationBar).should('exist');
   });
 
   context('when clicking on a post', () => {
@@ -39,7 +38,7 @@ describe('Home screen', { defaultCommandTimeout: 30000 }, () => {
     });
   });
 
-  context('when clicking on the random button', () => {
+  xcontext('when clicking on the random button', () => {
     it('navigates to the random post page', () => {
       // Start from the index page
       cy.visit('/');

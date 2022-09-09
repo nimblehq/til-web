@@ -1,6 +1,6 @@
 import { ParsedUrlQuery } from 'querystring';
 
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -28,20 +28,28 @@ export const tagDataTestIds = {
 };
 
 const Tag = ({ tag, posts }: TagProps) => {
+  useEffect(() => {
+    document.querySelector('body')?.classList.add('category-archive');
+  });
+
   return (
     <>
       <Head>
         <title>{getPageTitle(tag)}</title>
       </Head>
 
-      <h1
-        className="m-8 text-7xl items-center text-center"
-        data-test-id={tagDataTestIds.heading}
-      >
-        Posts with {tag} tag
-      </h1>
+      <div className="category-container">
+        <div className="category-headline">
+          <h1
+            className="category-headline__name"
+            data-test-id={tagDataTestIds.heading}
+          >
+            {tag}
+          </h1>
+        </div>
 
-      <PostList posts={posts} itemsRowWise={true} />
+        <PostList posts={posts} />
+      </div>
     </>
   );
 };

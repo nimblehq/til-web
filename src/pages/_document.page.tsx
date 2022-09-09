@@ -38,7 +38,7 @@ function Document() {
   );
 
   return (
-    <Html lang="en">
+    <Html lang="en" className="layout-default">
       <Head>
         <meta name="description" content="What Nimble has learned today" />
         <link rel="icon" href="/til/favicon.ico" />
