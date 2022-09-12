@@ -1,3 +1,5 @@
+@import 'highlight.js/styles/base16/one-light';
+
 .syntax-highlight {
   width: calc(100vw - #{$grid-gutter-width});
   margin-bottom: 2rem;
@@ -11,6 +13,6 @@
 
   @include media-breakpoint-up('xl') {
     width: calc(100vw - (#{$grid-gutter-width * 2} + #{$grid-gutter-width} + #{$blog-article-side-panel-width} + #{$blog-article-column-gap-width}));
-    max-width: map-get($grid-breakpoints, 'lg');
+    max-width: 100%;
   }
 }

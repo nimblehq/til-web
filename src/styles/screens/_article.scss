@@ -1,34 +1,25 @@
-.article .blog-article {
+.article .til-article {
   display: grid;
   grid-template-areas:
     'cover'
     'content'
-    'recruitment'
-    'recommendations'
-    'subscription'
     'sidebar';
 
   @include media-breakpoint-up('lg') {
-    padding-right: ($grid-gutter-width / 2);
-    padding-left: ($grid-gutter-width / 2);
-  }
-
-  @include media-breakpoint-up('xl') {
     grid-column-gap: $blog-article-column-gap-width;
     grid-template-areas:
-      'cover cover'
-      'content sidebar'
-      'recruitment sidebar'
-      'recommendations sidebar'
-      'subscription sidebar';
-    grid-template-columns: minmax(auto, map-get($grid-breakpoints, 'lg')) $blog-article-side-panel-width;
+      '. cover sidebar'
+      '. content sidebar';
+    grid-template-columns: ($blog-side-panel-width / 2) minmax(auto, $blog-article-container-max-width) ($blog-side-panel-width / 2);
 
     justify-content: center;
   }
 }
 
-.article .blog-article__cover {
+.article .til-article__cover {
   grid-area: cover;
+
+  max-width: $blog-article-container-max-width;
 
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -39,7 +30,7 @@
   }
 }
 
-.article .blog-article__content {
+.article .til-article__content {
   position: relative;
   grid-area: content;
   margin-bottom: 2rem;
@@ -63,33 +54,18 @@
   }
 }
 
-.article .blog-article__recruitment {
-  grid-area: recruitment;
-  margin-bottom: 1rem;
-
-  border-bottom: solid 1px var(--color-brand-athens-gray);
-}
-
-.article .blog-article__recommendations {
-  grid-area: recommendations;
-
-  margin-bottom: 2rem;
-
-  border-bottom: solid 1px var(--color-brand-athens-gray);
-}
-
-.article .blog-article__sidebar {
+.article .til-article__sidebar {
   grid-area: sidebar;
 
   margin-top: 1rem;
   margin-bottom: 2rem;
 
-  @include media-breakpoint-up('xl') {
+  @include media-breakpoint-up('lg') {
     margin-top: 0;
   }
 
   &--sticky {
-    @include media-breakpoint-up('xl') {
+    @include media-breakpoint-up('lg') {
       position: sticky;
       position: sticky;
       top: calc(#{$blog-header-height-md} + 5rem);
@@ -97,11 +73,11 @@
   }
 }
 
-.article .blog-article__subscription {
+.article .til-article__subscription {
   grid-area: subscription;
   margin-bottom: 1rem;
 
-  @include media-breakpoint-up('xl') {
+  @include media-breakpoint-up('lg') {
     margin-bottom: rem(144px);
   }
 }

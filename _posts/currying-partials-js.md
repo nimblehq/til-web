@@ -11,7 +11,7 @@ Currying in JavaScript from https://javascript.info/currying-partials, one of th
 
 Here example that I mentioned about return a function with default values:
 
-```js
+```javascript
 function log(date, importance, message) {
   alert(`[${date.getHours()}:${date.getMinutes()}] [${importance}] ${message}`);
 }

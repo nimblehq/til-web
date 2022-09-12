@@ -89,7 +89,11 @@ const PostCard = ({ post }: PostCardProps) => {
         >
           {formatDate(post.date)}
         </div>
-        <TagList tags={post.tags} data-test-id={postCardTestIds.tags} />
+        <TagList
+          tags={post.tags}
+          customClass="card-article"
+          data-test-id={postCardTestIds.tags}
+        />
       </div>
     </div>
   );

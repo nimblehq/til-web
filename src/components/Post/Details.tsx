@@ -23,67 +23,59 @@ export const postDetailsTestIds = {
 
 const PostDetails = ({ post }: PostDetailsProps) => {
   return (
-    <div
-      className="card bg-base-200 shadow-xl my-8 rounded-lg"
-      data-test-id={postDetailsTestIds.root}
-    >
-      <div className="p-8">
-        <h1
-          className="text-2xl font-bold text-center"
-          data-test-id={postDetailsTestIds.title}
-        >
-          {post.title}
-        </h1>
-        {post.coverImage && (
-          <div className="m-auto max-w-sm">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              width={480}
-              height={320}
-              layout="responsive"
-              objectFit="contain"
-              data-test-id={postDetailsTestIds.image}
-            />
-          </div>
-        )}
-        <div className="my-4">
-          <Content>{post.content}</Content>
-        </div>
-        <div
-          className="flex justify-between mt-4"
-          data-test-id={postDetailsTestIds.tags}
-        >
-          <TagList tags={post.tags} />
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8">
+    <article className="til-article">
+      <div className="til-article__cover">
+        <div className="card-article-cover">
+          {post.coverImage && (
+            <figure className="card-article-cover__image-container">
               <Image
-                src={getAvatarUrl(post.author, 32)}
+                src={post.coverImage}
+                alt={post.title}
+                width="640"
+                height="360"
+                layout="responsive"
+                objectFit="contain"
+                className="card-article-cover__image"
+                data-test-id={postDetailsTestIds.image}
+              />
+            </figure>
+          )}
+          <h1
+            className="card-article-cover__title"
+            data-test-id={postDetailsTestIds.title}
+          >
+            {post.title}
+          </h1>
+          <div className="card-article-cover__footer">
+            <div className="card-article-cover__avatar">
+              <Image
+                src={getAvatarUrl(post.author)}
                 alt={getAuthorName(post.author)}
                 width={32}
                 height={32}
-                className="rounded-full"
-                layout="fixed"
+                className="card-article-cover__avatar-image"
                 data-test-id={postDetailsTestIds.authorAvatar}
               />
             </div>
-            <div
-              className="text-sm font-semibold"
-              data-test-id={postDetailsTestIds.authorName}
-            >
+            <div className="card-article-cover__author">
               {getAuthorName(post.author)}
             </div>
-            <time
-              className="text-sm"
-              dateTime={post.date}
-              data-test-id={postDetailsTestIds.date}
-            >
+            <div className="card-article-cover__timestamp">
               {formatDate(post.date)}
-            </time>
+            </div>
+            <TagList
+              tags={post.tags}
+              customClass="card-article-cover"
+              data-test-id={postDetailsTestIds.tags}
+            />
           </div>
         </div>
       </div>
-    </div>
+      <div className="article-content til-article__content">
+        <Content>{post.content}</Content>
+      </div>
+      <section className="til-article__sidebar"></section>
+    </article>
   );
 };
 

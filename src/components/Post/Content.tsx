@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 import { prism as style } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import rehypeRaw from 'rehype-raw';
@@ -15,12 +15,12 @@ const CodeBlock = {
 
     return !inline ? (
       <SyntaxHighlighter
-        style={style}
         language={language}
-        PreTag="div"
-        {...props}
+        style={style}
+        useInlineStyles={false}
+        className="syntax-highlight"
       >
-        {String(children).replace(/\n$/, '')}
+        {children}
       </SyntaxHighlighter>
     ) : (
       <code className={className} {...props}>

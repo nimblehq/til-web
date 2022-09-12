@@ -30,6 +30,7 @@ body {
 @each $size, $value in $heading-sizes {
   #{$size} {
     font-size: #{$value/2};
+    font-weight: $font-weight-bolder;
     line-height: 1.25;
 
     @include media-breakpoint-up('lg') {

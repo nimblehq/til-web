@@ -1,13 +1,12 @@
 import { ParsedUrlQuery } from 'querystring';
 
-import { ReactElement } from 'react';
+import { ReactElement, useEffect } from 'react';
 
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
 
 import Layout from 'components/Layout';
-import PostDetailsComponent from 'components/Post/Details';
+import PostDetails from 'components/Post/Details';
 import { getPageTitle } from 'helpers/pageTitle';
 import { getAllPosts, getPostBySlug, Post } from 'lib/post';
 
@@ -23,27 +22,25 @@ export const postDetailsTestIds = {
   homePageLink: 'post-details__home-page-link',
 };
 
-const PostDetails = ({ post }: PostProps) => {
+const PostDetailsPage = ({ post }: PostProps) => {
+  useEffect(() => {
+    document.querySelector('body')?.classList.add('article');
+  });
+
   return (
     <>
       <Head>
         <title>{getPageTitle(post.title)}</title>
       </Head>
 
-      <h2
-        className="m-8 text-7xl items-center text-center"
-        data-test-id={postDetailsTestIds.homePageLink}
-      >
-        <Link href="/">TIL</Link>
-      </h2>
-      <PostDetailsComponent post={post} />
+      <PostDetails post={post} />
     </>
   );
 };
 
-PostDetails.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+PostDetailsPage.getLayout = (page: ReactElement) => <Layout>{page}</Layout>;
 
-export default PostDetails;
+export default PostDetailsPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts();
