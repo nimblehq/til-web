@@ -18,10 +18,6 @@ interface PostParams extends ParsedUrlQuery {
   slug: string;
 }
 
-export const postDetailsTestIds = {
-  homePageLink: 'post-details__home-page-link',
-};
-
 const PostDetailsPage = ({ post }: PostProps) => {
   useEffect(() => {
     document.querySelector('body')?.classList.add('article');

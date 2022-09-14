@@ -23,7 +23,7 @@ export const postDetailsTestIds = {
 
 const PostDetails = ({ post }: PostDetailsProps) => {
   return (
-    <article className="til-article">
+    <article className="til-article" data-test-id={postDetailsTestIds.root}>
       <div className="til-article__cover">
         <div className="card-article-cover">
           {post.coverImage && (
@@ -57,10 +57,16 @@ const PostDetails = ({ post }: PostDetailsProps) => {
                 data-test-id={postDetailsTestIds.authorAvatar}
               />
             </div>
-            <div className="card-article-cover__author">
+            <div
+              className="card-article-cover__author"
+              data-test-id={postDetailsTestIds.authorName}
+            >
               {getAuthorName(post.author)}
             </div>
-            <div className="card-article-cover__timestamp">
+            <div
+              className="card-article-cover__timestamp"
+              data-test-id={postDetailsTestIds.date}
+            >
               {formatDate(post.date)}
             </div>
             <TagList
