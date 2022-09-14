@@ -37,10 +37,15 @@
   grid-area: cover;
   margin-bottom: rem(16px);
   margin-left: 0;
+  justify-self: center;
 
   @include media-breakpoint-up('sm') {
     margin-bottom: 0;
     margin-left: rem(50px);
+  }
+
+  @include media-breakpoint-up('md') {
+    justify-self: end;
   }
 
   &-image {
