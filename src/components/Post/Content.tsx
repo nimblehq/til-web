@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
-import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import { atomOneLight as style } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { coldarkCold as style } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import rehypeRaw from 'rehype-raw';
 import remarkEmoji from 'remark-emoji';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -17,6 +17,7 @@ const CodeBlock = {
       <SyntaxHighlighter
         language={language}
         style={style}
+        customStyle={{ background: 'var(--color-gray-lightest)' }}
         wrapLongLines={true}
         className="syntax-highlight"
       >
