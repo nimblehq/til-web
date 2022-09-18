@@ -1,3 +1,4 @@
+import Footer from 'components/Footer';
 import Header from 'components/Header';
 import RandomButton from 'components/Post/RandomButton';
 
@@ -11,6 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="app-content">{children}</main>
       <RandomButton />
+      <Footer />
     </>
   );
 };
