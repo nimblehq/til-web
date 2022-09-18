@@ -13,6 +13,7 @@ export const postRandomButtonTestIds = {
 const RandomButton = () => {
   const router = useRouter();
   const [requesting, setRequesting] = useState(false);
+
   const onClick = async () => {
     setRequesting(true);
 
