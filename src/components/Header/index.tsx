@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import IconArrow from 'assets/icons/icon-arrow.svg';
 import IconLogo from 'assets/icons/logo.svg';
+
 const categories = [
   { name: 'All', href: '/' },
   { name: 'Web', href: '/tags/web' },

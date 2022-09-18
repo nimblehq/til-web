@@ -38,7 +38,7 @@ describe('Home screen', { defaultCommandTimeout: 30000 }, () => {
     });
   });
 
-  xcontext('when clicking on the random button', () => {
+  context('when clicking on the random button', () => {
     it('navigates to the random post page', () => {
       // Start from the index page
       cy.visit('/');

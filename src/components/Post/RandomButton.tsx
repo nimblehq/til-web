@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 
+import IconShuffle from 'assets/icons/icon-shuffle.svg';
 import { randomSlug } from 'services/randomSlug';
 
 export const postRandomButtonTestIds = {
@@ -17,8 +18,6 @@ const RandomButton = () => {
 
     const slug = await randomSlug();
 
-    setRequesting(false);
-
     if (!slug) {
       router.push('/');
 
@@ -28,23 +27,25 @@ const RandomButton = () => {
     router.push(`/posts/${slug}`);
   };
 
+  useEffect(() => {
+    router.events.on('routeChangeComplete', () => {
+      setRequesting(false);
+    });
+  }, [router.events]);
+
   return (
-    <div className="absolute top-0 right-0 p-4">
-      <button
-        className={classNames('btn btn-circle', {
-          loading: requesting,
-          disabled: requesting,
-        })}
-        onClick={onClick}
-        data-test-id={postRandomButtonTestIds.root}
-      >
-        <span
-          className={classNames('random-button__text', { hidden: requesting })}
-        >
-          TIL
-        </span>
-      </button>
-    </div>
+    <button
+      className={classNames('btn random-btn', {
+        loading: requesting,
+        disabled: requesting,
+        'random-btn--loading': requesting,
+      })}
+      onClick={onClick}
+      data-test-id={postRandomButtonTestIds.root}
+    >
+      <IconShuffle className="icon" />
+      <span className="sr-only">Random a post</span>
+    </button>
   );
 };
 
