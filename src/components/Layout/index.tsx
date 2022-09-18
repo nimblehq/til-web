@@ -1,3 +1,5 @@
+import Header from 'components/Header';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -5,6 +7,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
+      <Header />
       <main className="app-content">{children}</main>
     </>
   );

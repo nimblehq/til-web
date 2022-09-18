@@ -95,10 +95,25 @@ const getAllPosts = (fields: Field[] = POST_FIELDS): Post[] => {
   return posts;
 };
 
-const getPostByTag = (tag: string, fields: Field[] = POST_FIELDS): Post[] => {
+const getPostsByTag = (tag: string, fields: Field[] = POST_FIELDS): Post[] => {
   const posts = getAllPosts(fields);
 
   return posts.filter((post) => post.tags.includes(tag));
+};
+
+const getAllTags = (): string[] => {
+  const posts = getAllPosts(['tags']);
+
+  const tags = posts.reduce((acc, post) => {
+    post.tags.forEach((tag) => {
+      if (!acc.includes(tag)) {
+        acc.push(tag);
+      }
+    });
+
+    return acc;
+  }, [] as string[]);
+  return tags;
 };
 
 const randomPostSlug = (savedSlugs: string[] = []): string | null => {
@@ -115,8 +130,9 @@ const randomPostSlug = (savedSlugs: string[] = []): string | null => {
 
 export {
   getAllPosts,
+  getAllTags,
   getPostBySlug,
-  getPostByTag,
+  getPostsByTag,
   getPostSlugs,
   randomPostSlug,
   POST_FIELDS,
