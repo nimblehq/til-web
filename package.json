@@ -18,7 +18,6 @@
     "e2e:headless": "PORT=3003 start-server-and-test dev http://localhost:3003/til cypress:headless"
   },
   "dependencies": {
-    "highlight.js": "11.6.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
