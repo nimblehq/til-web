@@ -3,7 +3,7 @@
   position: fixed;
   z-index: map-get($z-index, 'highest');
   right: rem(18px);
-  bottom: rem(14px);
+  bottom: rem(48px);
   align-items: center;
   width: rem(50px);
   height: rem(50px);
@@ -22,7 +22,7 @@
 
   @include media-breakpoint-up('lg') {
     right: rem(56px);
-    bottom: rem(24px);
+    bottom: rem(32px);
   }
 
   &--loading {
