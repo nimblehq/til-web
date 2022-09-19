@@ -28,7 +28,7 @@ const PostCard = ({ post }: PostCardProps) => {
     <div className="card-article">
       {post.coverImage && (
         <div className="card-article__cover">
-          <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+          <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>
             <a
               className="card-article__cover-link"
               href={`/posts/${post.slug}`}
@@ -50,7 +50,7 @@ const PostCard = ({ post }: PostCardProps) => {
         className="card-article__headline"
         data-test-id={postCardTestIds.title}
       >
-        <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+        <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>
           <a
             className="card-article__headline-link"
             href={`/posts/${post.slug}`}

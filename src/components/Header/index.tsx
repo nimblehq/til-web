@@ -23,7 +23,7 @@ const Header = () => {
           isMenuOpen ? 'app-navigation-bar--menu-open' : ''
         }`}
       >
-        <Link href="/">
+        <Link href="/" passHref>
           <a
             href="/"
             className="logo link link--image navbar-brand app-header__logo"
@@ -46,7 +46,7 @@ const Header = () => {
           <ul className="app-header__menu list--unstyled">
             {categories.map((category) => (
               <li key={category.name} className="app-header__menu-item">
-                <Link href={category.href}>
+                <Link href={category.href} passHref>
                   <a
                     className="app-header__menu-link link"
                     href={category.href}
@@ -58,13 +58,15 @@ const Header = () => {
             ))}
           </ul>
 
-          <a
-            href="https://nimblehq.co/"
-            className="app-header__btn-home btn btn--link"
-          >
-            <span>nimblehq.co</span>
-            <IconArrow className="icon icon--xs" />
-          </a>
+          <Link href="https://nimblehq.co/" passHref>
+            <a
+              href="https://nimblehq.co/"
+              className="app-header__btn-home btn btn--link"
+            >
+              <span>nimblehq.co</span>
+              <IconArrow className="icon icon--xs" />
+            </a>
+          </Link>
         </nav>
       </nav>
     </header>

@@ -22,7 +22,7 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
       <ul className="pagination">
         {currentPage > 1 && (
           <li className="pagination__page">
-            <Link href="/page/[page]" as={`/page/${currentPage - 1}`}>
+            <Link href="/page/[page]" as={`/page/${currentPage - 1}`} passHref>
               <a
                 href={`/page/${currentPage - 1}`}
                 className="pagination__link"
@@ -51,7 +51,7 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
             case page === 1:
               return (
                 <li key={page} className="pagination__page">
-                  <Link href="/">
+                  <Link href="/" passHref>
                     <a
                       href="/"
                       className="pagination__link"
@@ -66,7 +66,7 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
             default:
               return (
                 <li key={page} className="pagination__page">
-                  <Link href="/page/[page]" as={`/page/${page}`}>
+                  <Link href="/page/[page]" as={`/page/${page}`} passHref>
                     <a
                       href={`/page/${page}`}
                       className="pagination__link"
@@ -82,7 +82,7 @@ const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
 
         {currentPage < totalPages && (
           <li className="pagination__page">
-            <Link href="/page/[page]" as={`/page/${currentPage + 1}`}>
+            <Link href="/page/[page]" as={`/page/${currentPage + 1}`} passHref>
               <a
                 href={`/page/${currentPage + 1}`}
                 className="pagination__link"
