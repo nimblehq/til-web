@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import IconBehance from 'assets/icons/icon-behance.svg';
 import IconDribbble from 'assets/icons/icon-dribbble.svg';
 import IconFacebook from 'assets/icons/icon-fb.svg';
@@ -92,24 +94,28 @@ const Footer = () => {
         <ul className="app-footer__menu list--unstyled">
           {footerMenuItems.map((item) => (
             <li key={item.title} className="app-footer__menu-item">
-              <a
-                href={item.permalink}
-                className="app-footer__menu-link link"
-                target={item.target}
-                rel={item.referrer ? 'noopener' : ''}
-              >
-                {item.title}
-              </a>
+              <Link href={item.permalink} passHref>
+                <a
+                  href={item.permalink}
+                  className="app-footer__menu-link link"
+                  target={item.target}
+                  rel={item.referrer ? 'noopener' : ''}
+                >
+                  {item.title}
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
       </nav>
 
       <div className="app-footer__brand">
-        <a href={baseUrl} className="logo link link--image app-footer__logo">
-          <IconLogo className="icon logo__icon" width="132" height="32" />
-          <span className="logo__text sr-only">nimblehq.co</span>
-        </a>
+        <Link href={baseUrl} passHref>
+          <a href={baseUrl} className="logo link link--image app-footer__logo">
+            <IconLogo className="icon logo__icon" width="132" height="32" />
+            <span className="logo__text sr-only">nimblehq.co</span>
+          </a>
+        </Link>
 
         <small className="app-footer__copyright">© 2022 Nimble</small>
       </div>
@@ -118,17 +124,19 @@ const Footer = () => {
         <ul className="list-social-platform list--unstyled">
           {socialPlatforms.map((platform) => (
             <li key={platform.name} className="list-social-platform__item">
-              <a
-                href={platform.permalink}
-                className="list-social-platform__link link link--chromeless"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <platform.icon
-                  className={`icon list-social-platform__icon icon--xs list-social-platform__icon--${platform.slug}`}
-                />
-                <span className="sr-only">{platform.name}</span>
-              </a>
+              <Link href={platform.permalink} passHref>
+                <a
+                  href={platform.permalink}
+                  className="list-social-platform__link link link--chromeless"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <platform.icon
+                    className={`icon list-social-platform__icon icon--xs list-social-platform__icon--${platform.slug}`}
+                  />
+                  <span className="sr-only">{platform.name}</span>
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
