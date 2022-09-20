@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import classNames from 'classnames';
 import Link from 'next/link';
 
 import IconArrow from 'assets/icons/icon-arrow.svg';
@@ -19,9 +20,9 @@ const Header = () => {
   return (
     <header className="app-header">
       <nav
-        className={`app-navigation-bar navbar ${
-          isMenuOpen ? 'app-navigation-bar--menu-open' : ''
-        }`}
+        className={classNames('app-navigation-bar navbar', {
+          'app-navigation-bar--menu-open': isMenuOpen,
+        })}
       >
         <Link href="/" passHref>
           <a
