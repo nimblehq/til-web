@@ -2,23 +2,32 @@ import Link from 'next/link';
 
 interface TagListProps {
   tags: string[];
+  customClass?: string;
 }
 
 export const tagListTestIds = {
   root: 'tag-list',
 };
 
-const TagList = ({ tags }: TagListProps) => {
+const TagList = ({ tags, customClass, ...props }: TagListProps) => {
+  if (!tags.length) {
+    return null;
+  }
+
   return (
-    <ul className="self-center" data-test-id={tagListTestIds.root}>
+    <div
+      className={`${customClass}__tag`}
+      data-test-id={tagListTestIds.root}
+      {...props}
+    >
       {tags.map((tag) => (
         <Link key={tag} href={`/tags/${tag}`}>
-          <a href={`/tags/${tag}`}>
-            <li className="badge badge-md mr-0.5">{tag}</li>
+          <a href={`/tags/${tag}`} className={`${customClass}__tag-item`}>
+            {tag}
           </a>
         </Link>
       ))}
-    </ul>
+    </div>
   );
 };
 

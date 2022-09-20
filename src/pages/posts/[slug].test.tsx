@@ -1,19 +1,19 @@
 import { render, screen } from '@testing-library/react';
 
+import { postDetailsTestIds } from 'components/Post/Details';
 import { getAllPosts } from 'lib/post';
 
-import PostDetails, { postDetailsTestIds } from './[slug].page';
+import PostDetails from './[slug].page';
 
 describe('PostDetails', () => {
-  it('renders a home link', () => {
+  it('renders PostDetails component', () => {
     const posts = getAllPosts();
     const post = posts[0];
 
     render(<PostDetails post={post} />);
 
-    const homePageLink = screen.getByTestId(postDetailsTestIds.homePageLink);
+    const postDetailsComponent = screen.getByTestId(postDetailsTestIds.root);
 
-    expect(homePageLink).toBeVisible();
-    expect(homePageLink).toHaveTextContent('TIL');
+    expect(postDetailsComponent).toBeInTheDocument();
   });
 });

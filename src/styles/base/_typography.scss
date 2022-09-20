@@ -1,0 +1,76 @@
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: map-get($font-sizes, 'md');
+  line-height: $base-line-height;
+
+  @include media-breakpoint-up('lg') {
+    font-size: map-get($font-sizes, 'lg');
+  }
+
+  @include media-breakpoint-up('xl') {
+    font-size: map-get($font-sizes, 'xl');
+  }
+}
+
+::selection {
+  background: var(--color-brand-electric-violet);
+
+  color: hsl(0, 0%, 100%);
+}
+
+::selection {
+  background: var(--color-brand-electric-violet);
+
+  color: hsl(0, 0%, 100%);
+}
+
+// Headings
+
+@each $size, $value in $heading-sizes {
+  #{$size} {
+    font-size: #{$value/2};
+    font-weight: $font-weight-bolder;
+    line-height: 1.25;
+
+    @include media-breakpoint-up('lg') {
+      font-size: #{$value};
+      line-height: $base-line-height;
+    }
+  }
+}
+
+h2 {
+  // Fix font alignment on large text
+  @include media-breakpoint-up('lg') {
+    text-indent: -4px;
+  }
+}
+
+// Links
+
+a {
+  @include animated-underline();
+
+  color: map-get($color-brand, 'red-ribbon');
+  text-decoration: none;
+
+  &:hover {
+    color: lighten(map-get($color-brand, 'red-ribbon'), 10%);
+  }
+}
+
+// Text
+
+p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Code blocks
+
+li > code,
+p > code {
+  word-break: break-word;
+}

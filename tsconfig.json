@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "./src"
   },
-  "include": ["**/*.ts", "**/*.tsx", "jest.setup.js"],
+  "include": ["**/*.ts", "**/*.tsx", "jest.setup.js", "tailwind.config.js"],
   "exclude": ["node_modules"]
 }

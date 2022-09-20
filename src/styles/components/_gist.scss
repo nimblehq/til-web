@@ -1,0 +1,28 @@
+.gist[id^='gist'] {
+  margin-bottom: 2rem;
+  padding: rem(8px);
+
+  background: var(--color-gray-lightest);
+
+  .gist-data,
+  .gist-file {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .gist-data {
+    background: transparent;
+  }
+
+  .gist-file {
+    margin-bottom: 0;
+  }
+
+  .gist-meta {
+    display: none;
+  }
+
+  .highlight {
+    background: transparent;
+  }
+}

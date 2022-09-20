@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import Link from 'next/link';
 
 interface PaginationProps {
@@ -14,32 +13,87 @@ export const paginationTestIds = {
 };
 
 const Pagination = ({ currentPage, totalPages }: PaginationProps) => {
+  if (totalPages === 1) {
+    return <></>;
+  }
+
   return (
-    <nav
-      className="flex justify-center btn-group m-4"
-      data-test-id={paginationTestIds.root}
-    >
-      <Link href="/page/[page]" as={`/page/${currentPage - 1}`}>
-        <button
-          className={classNames('btn', { 'btn-disabled': currentPage <= 1 })}
-          data-test-id={paginationTestIds.prev}
-        >
-          «
-        </button>
-      </Link>
-      <button className="btn btn-ghost" data-test-id={paginationTestIds.page}>
-        {currentPage}
-      </button>
-      <Link href="/page/[page]" as={`/page/${currentPage + 1}`}>
-        <button
-          className={classNames('btn', {
-            'btn-disabled': currentPage >= totalPages,
-          })}
-          data-test-id={paginationTestIds.next}
-        >
-          »
-        </button>
-      </Link>
+    <nav className="navigation" data-test-id={paginationTestIds.root}>
+      <ul className="pagination">
+        {currentPage > 1 && (
+          <li className="pagination__page">
+            <Link href="/page/[page]" as={`/page/${currentPage - 1}`}>
+              <a
+                href={`/page/${currentPage - 1}`}
+                className="pagination__link"
+                data-test-id={paginationTestIds.prev}
+              >
+                {'<'}
+              </a>
+            </Link>
+          </li>
+        )}
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => {
+          const isCurrentPage = page === currentPage;
+
+          switch (true) {
+            case isCurrentPage:
+              return (
+                <li
+                  key={page}
+                  className="pagination__page"
+                  data-test-id={`${paginationTestIds.page}-${page}`}
+                >
+                  <span className="pagination__text">{page}</span>
+                </li>
+              );
+
+            case page === 1:
+              return (
+                <li key={page} className="pagination__page">
+                  <Link href="/">
+                    <a
+                      href="/"
+                      className="pagination__link"
+                      data-test-id={`${paginationTestIds.page}-${page}`}
+                    >
+                      {page}
+                    </a>
+                  </Link>
+                </li>
+              );
+
+            default:
+              return (
+                <li key={page} className="pagination__page">
+                  <Link href="/page/[page]" as={`/page/${page}`}>
+                    <a
+                      href={`/page/${page}`}
+                      className="pagination__link"
+                      data-test-id={`${paginationTestIds.page}-${page}`}
+                    >
+                      {page}
+                    </a>
+                  </Link>
+                </li>
+              );
+          }
+        })}
+
+        {currentPage < totalPages && (
+          <li className="pagination__page">
+            <Link href="/page/[page]" as={`/page/${currentPage + 1}`}>
+              <a
+                href={`/page/${currentPage + 1}`}
+                className="pagination__link"
+                data-test-id={paginationTestIds.next}
+              >
+                {'>'}
+              </a>
+            </Link>
+          </li>
+        )}
+      </ul>
     </nav>
   );
 };

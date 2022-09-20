@@ -1,0 +1,107 @@
+.article-content {
+  > blockquote,
+  > figure,
+  > p,
+  > pre,
+  > ol,
+  > ul {
+    margin-bottom: 2rem;
+  }
+
+  > blockquote {
+    position: relative;
+    padding: rem(8px 24px);
+
+    &::before {
+      content: '';
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: rem(4px);
+      height: 100%;
+
+      background-color: var(--color-brand-red-ribbon);
+    }
+  }
+
+  // Set specific width for `.gist`.
+  // It leads the cause of bleeding page layout.
+  > .gist {
+    width: calc(100vw - #{$grid-gutter-width});
+
+    @include media-breakpoint-up('lg') {
+      width: calc(100vw - (#{$grid-gutter-width * 2} + #{$grid-gutter-width}));
+    }
+
+    @include media-breakpoint-up('xl') {
+      width: calc(100vw - (#{$grid-gutter-width * 2} + #{$grid-gutter-width} + #{$blog-article-side-panel-width} + #{$blog-article-column-gap-width}));
+      max-width: map-get($grid-breakpoints, 'lg');
+    }
+  }
+
+  @each $heading, $value in $heading-sizes {
+    #{$heading} {
+      font-size: #{$value / 2.75};
+      line-height: initial;
+      text-indent: initial;
+    }
+
+    > #{$heading} {
+      margin-bottom: 1rem;
+    }
+  }
+
+  a {
+    @include multiple-line-underline();
+
+    background-image: linear-gradient(to bottom, currentColor 0%, currentColor 100%);
+  }
+
+  code {
+    display: inline-block;
+
+    padding: rem(0 4px);
+
+    background: var(--color-gray-lightest);
+  }
+
+  h1 {
+    font-size: map-get($heading-sizes, 'h2') / 2;
+
+    @include media-breakpoint-up('lg') {
+      font-size: map-get($heading-sizes, 'h2');
+    }
+  }
+
+  img {
+    display: block;
+
+    max-width: 100%;
+    height: auto;
+
+    margin: 0 auto;
+  }
+
+  img + em,
+  figure > figcaption {
+    display: block;
+
+    margin-top: rem(12px);
+
+    font-size: map-get($font-sizes, 'xs');
+    font-style: initial;
+
+    text-align: center;
+
+    @include media-breakpoint-up('lg') {
+      font-size: map-get($font-sizes, 'md');
+    }
+  }
+
+  strong {
+    word-break: break-word;
+  }
+}

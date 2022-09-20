@@ -1,0 +1,50 @@
+// Triggers GPU acceleration in modern desktop and mobile browsers even without 3D animation
+@mixin trigger-gpu-rendering() {
+  transform: translateZ(0);
+  transform: translateZ(0);
+  transform: translateZ(0);
+  transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+// Fade animation
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@mixin fade-in($delay: 0s) {
+  animation: fade-in $base-animation-duration $base-animation-timing $delay;
+}
+
+@mixin fade-out($delay: 0s) {
+  animation: fade-out $base-animation-duration $base-animation-timing $delay;
+}
+
+// Push animation
+
+@keyframes push {
+  50% {
+    transform: scale(0.8);
+  }
+}
+
+@mixin push($delay: 0s) {
+  animation: push $base-animation-duration $base-animation-timing $delay;
+}

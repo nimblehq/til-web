@@ -1,0 +1,27 @@
+.layout-default body {
+  background-color: var(--color-brand-valhalla);
+}
+
+.layout-default .app-header,
+.layout-default .app-content,
+.layout-default .app-footer {
+  @include make-content-container();
+}
+
+.layout-default .app-header {
+  position: fixed;
+  z-index: map-get($z-index, 'highest');
+  top: 0;
+}
+
+.layout-default .app-content {
+  min-height: calc(100vh - #{$blog-header-height} - #{$blog-footer-height});
+  margin-top: $blog-header-height;
+
+  background: hsl(0, 0%, 100%);
+
+  @include media-breakpoint-up('md') {
+    min-height: calc(100vh - #{$blog-header-height-md} - #{$blog-footer-height-md});
+    margin-top: $blog-header-height-md;
+  }
+}

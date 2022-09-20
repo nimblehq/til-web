@@ -1,0 +1,33 @@
+.share-platform {
+  display: inline-table;
+
+  &__item {
+    display: inherit;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &__link {
+    @include transition(background-color $base-animation-duration);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2rem;
+    height: 2rem;
+
+    background-color: transparent;
+
+    color: inherit;
+
+    &:hover,
+    &:active {
+      background-color: map-get($color-gray, 'dark');
+
+      color: hsl(0, 0%, 100%);
+    }
+  }
+}

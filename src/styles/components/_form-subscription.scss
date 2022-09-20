@@ -1,0 +1,45 @@
+.form-subscription {
+
+  @include media-breakpoint-up('xl') {
+    position: sticky;
+    position: sticky;
+    top: rem($blog-header-margin-top + $blog-header-margin-bottom);
+  }
+
+  &__headline {
+    margin-bottom: rem(8px);
+
+    font-size: map-get($font-sizes, 'xxl');
+    text-indent: initial;
+  }
+
+  &__description {
+    padding-bottom: 1rem;
+
+    font-size: $base-font-size;
+  }
+
+  &__button.btn {
+    $accent-color: map-get($color-brand, 'red-ribbon');
+
+    padding: rem(16px 24px 14px);
+
+    border-color: $accent-color;
+
+    color: $accent-color;
+
+    &::before {
+      border-color: $accent-color;
+    }
+
+    &:focus {
+      background: $accent-color;
+
+      color: hsl(0, 0%, 100%);
+    }
+  }
+
+  .form-subscription__input {
+    margin-bottom: 1rem;
+  }
+}

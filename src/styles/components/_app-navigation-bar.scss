@@ -1,0 +1,143 @@
+.app-navigation-bar {
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: rem(16px 0);
+
+  @include media-breakpoint-up('md') {
+    padding-top: rem(18px);
+    padding-bottom: rem(18px);
+  }
+
+  @include media-breakpoint-up('xl') {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &::before {
+    @include trigger-gpu-rendering();
+    content: '';
+
+    position: absolute;
+    z-index: map-get($z-index, 'behind');
+    top: 0;
+    left: -($grid-gutter-width / 2);
+
+    width: 100vw;
+    height: rem(64px);
+
+    transition: height $base-animation-duration ease-in-out $base-animation-duration/2;
+
+    background-color: var(--color-brand-valhalla);
+
+    @include media-breakpoint-up('md') {
+      height: rem(72px);
+    }
+
+    @include media-breakpoint-up('lg') {
+      left: -$grid-gutter-width;
+    }
+  }
+}
+
+.app-navigation-bar__btn-toggle-menu {
+  position: absolute;
+  right: 0;
+
+  @include media-breakpoint-up('xl') {
+    display: none;
+  }
+
+  .icon-hamburger,
+  .icon-hamburger::before,
+  .icon-hamburger::after {
+    transition-duration: 500ms;
+    transition-timing-function: swing;
+
+    background-color: hsl(0, 0%, 100%);
+  }
+}
+
+.app-navigation-bar__navigation {
+  @include trigger-gpu-rendering();
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  align-items: baseline;
+
+  width: 100%;
+  height: 0;
+
+  transform: translateX(-100vw);
+
+  transition: height $base-animation-duration ease-in-out $base-animation-duration/2;
+
+  @include media-breakpoint-up('xl') {
+    display: flex;
+    visibility: visible;
+    flex-direction: row;
+
+    width: auto;
+    height: auto;
+
+    transform: translateX(0);
+  }
+
+  > * {
+    @include trigger-gpu-rendering();
+    transition: opacity $base-animation-duration/2 ease-in-out;
+
+    opacity: 0;
+
+    @include media-breakpoint-up('md') {
+      opacity: 1;
+    }
+  }
+}
+
+// Menu animation
+
+// Control the colored menu height
+.app-navigation-bar {
+  &.app-navigation-bar--menu-open {
+    height: 100%;
+
+    &::before {
+      height: inherit;
+
+      transition-delay: 0s;
+    }
+  }
+}
+
+.app-navigation-bar--menu-open {
+  .app-navigation-bar__btn-toggle-menu .icon-hamburger {
+    background-color: transparent;
+
+    &::before {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+
+  .app-navigation-bar__navigation {
+    // Reset element to be default state in screen
+    visibility: visible;
+
+    // Scale height by animating
+    height: 100%;
+
+    transform: translateX(0);
+    transition-delay: 0s;
+
+    // Fade-in some elements inside navigation box
+    > * {
+      transition-delay: $base-animation-duration * 1.25;
+
+      opacity: 1;
+    }
+  }
+}

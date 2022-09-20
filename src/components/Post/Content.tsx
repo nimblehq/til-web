@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 
-import { prism as style } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { coldarkCold as style } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import rehypeRaw from 'rehype-raw';
 import remarkEmoji from 'remark-emoji';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -15,12 +15,13 @@ const CodeBlock = {
 
     return !inline ? (
       <SyntaxHighlighter
-        style={style}
         language={language}
-        PreTag="div"
-        {...props}
+        style={style}
+        customStyle={{ background: 'var(--color-gray-lightest)' }}
+        wrapLongLines={true}
+        className="syntax-highlight"
       >
-        {String(children).replace(/\n$/, '')}
+        {children}
       </SyntaxHighlighter>
     ) : (
       <code className={className} {...props}>
