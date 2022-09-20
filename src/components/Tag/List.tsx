@@ -21,7 +21,7 @@ const TagList = ({ tags, customClass, ...props }: TagListProps) => {
       {...props}
     >
       {tags.map((tag) => (
-        <Link key={tag} href={`/tags/${tag}`}>
+        <Link key={tag} href={`/tags/${tag}`} passHref>
           <a href={`/tags/${tag}`} className={`${customClass}__tag-item`}>
             {tag}
           </a>

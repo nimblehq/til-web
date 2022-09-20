@@ -1,0 +1,31 @@
+.link {
+  &,
+  &:hover {
+    color: hsl(0, 0%, 100%);
+  }
+
+  // Color modifiers
+
+  &--primary {
+    color: map-get($color-brand, 'red-ribbon');
+
+    @include hover {
+      color: lighten(map-get($color-brand, 'red-ribbon'), 10%);
+    }
+  }
+
+  // Type modifiers
+
+  &--chromeless,
+  &--image {
+    white-space: initial;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &--underlined::after {
+    opacity: 1 !important;
+  }
+}

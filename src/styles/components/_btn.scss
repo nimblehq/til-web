@@ -1,0 +1,144 @@
+.btn {
+
+  --btn-padding-x: 2rem;
+  --btn-padding-y: 0.875rem;
+  --btn-border-width: 1px;
+  @include transition(background $base-animation-duration);
+
+  display: inline-block;
+
+  position: relative;
+  z-index: map-get($z-index, 'default');
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+
+  border: var(--btn-border-width) solid transparent;
+
+  font-size: map-get($font-sizes, 'default');
+  font-weight: bold;
+
+  line-height: $base-line-height;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  user-select: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Theme modifiers
+
+.btn.btn--primary {
+  $accent-color: map-get($color-brand, 'red-ribbon');
+
+  @include animated-button($accent-color);
+  border-color: $accent-color;
+
+  background: $accent-color;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.btn.btn--secondary {
+  $accent-color: hsl(0, 0%, 100%);
+
+  @include animated-button($accent-color);
+  border-color: $accent-color;
+
+  background: $accent-color;
+
+  color: var(--color-brand-red-ribbon);
+}
+
+.btn.btn--outline {
+  --accent-color: hsl(0, 0%, 100%);
+  --border-width: 2px;
+  --padding-y: calc(var(--btn-padding-y) - (var(--border-width) - var(--btn-border-width)));
+
+  @include transition(box-shadow $base-animation-duration);
+
+  padding: var(--padding-y) var(--btn-padding-x);
+
+  border: var(--border-width) solid var(--accent-color);
+
+  background: transparent;
+
+  color: var(--accent-color);
+  will-change: box-shadow;
+
+  // Inset border shown on mouse hover
+
+  &::before {
+    @include transition(opacity $base-animation-duration);
+
+    content: '';
+
+    position: absolute;
+    z-index: map-get($z-index, 'behind');
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--accent-color);
+
+    opacity: 0;
+  }
+
+  &:hover::before,
+  &:focus::before {
+    opacity: 1;
+  }
+
+  &:hover {
+    box-shadow: 0 10px 10px 0 hsla(0%, 0%, 0%, 0.05);
+  }
+
+  &:focus {
+    background: var(--accent-color);
+
+    color: var(--color-brand-big-stone);
+  }
+}
+
+.btn.btn--link {
+  text-decoration: none;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn.btn--chromeless {
+  padding: 0;
+
+  border: 0;
+
+  background: none;
+}
+
+// Size modifiers
+
+.btn.btn--large {
+  @include media-breakpoint-up('lg') {
+    --btn-padding-x: 5rem;
+    --btn-padding-y: 1.125rem;
+
+    font-size: map-get($font-sizes, 'lg');
+  }
+}
+
+.btn.btn--primary.btn--large {
+  &:hover::before {
+    @include media-breakpoint-up('lg') {
+      transform: scale(25);
+    }
+  }
+}

@@ -8,7 +8,7 @@ import Head from 'next/head';
 import Layout from 'components/Layout';
 import PostList from 'components/Post/List';
 import { getPageTitle } from 'helpers/pageTitle';
-import { getAllPosts, getPostByTag, Post } from 'lib/post';
+import { getAllPosts, getPostsByTag, Post } from 'lib/post';
 
 interface TagProps {
   tag: string;
@@ -80,7 +80,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { tag } = params as TagParams;
-  const posts = getPostByTag(tag);
+  const posts = getPostsByTag(tag);
+
+  if (!posts) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
   return {
     props: { tag, posts },

@@ -1,0 +1,12 @@
+.logo {
+  display: inline-block;
+  min-width: rem(32px);
+  min-height: rem(32px);
+
+  white-space: initial;
+
+  &__icon {
+    width: inherit;
+    height: inherit;
+  }
+}
