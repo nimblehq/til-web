@@ -1,0 +1,123 @@
+.app-footer {
+  display: flex;
+  flex-direction: column;
+  padding-top: rem(56px);
+
+  color: hsl(0, 0%, 100%);
+
+  @include media-breakpoint-up('md') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: rem(40px);
+  }
+
+  &__navigation {
+    order: 1;
+
+    text-align: center;
+
+    @include media-breakpoint-up('md') {
+      order: 2;
+
+      text-align: left;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    order: 2;
+    margin-top: rem(32px);
+
+    @include media-breakpoint-up('md') {
+      align-items: flex-start;
+      order: 1;
+      margin-top: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 3;
+    height: rem(64px);
+    margin: rem(32px 0 0);
+
+    background-color: transparent;
+
+    @include media-breakpoint-up('md') {
+      flex-basis: 100%;
+      justify-content: flex-start;
+      margin-top: rem(56px);
+    }
+  }
+}
+
+.app-footer__menu {
+  margin: 0;
+
+  &-item {
+    display: flex;
+    justify-content: center;
+
+    @include media-breakpoint-up('md') {
+      display: inline-block;
+    }
+  }
+
+  &-item:not(:last-child) {
+    margin-bottom: rem(24px);
+
+    @include media-breakpoint-up('md') {
+      margin-right: 1rem;
+      margin-bottom: 0;
+    }
+
+    @include media-breakpoint-up('lg') {
+      margin-right: rem(24px);
+    }
+
+    @include media-breakpoint-up('xl') {
+      margin-right: rem(32px);
+    }
+  }
+
+  &-link {
+    display: block;
+
+    color: hsl(0, 0%, 100%);
+    font-size: map-get($font-sizes, 'default');
+    font-weight: map-get($font-weight, 'bolder');
+
+    @include media-breakpoint-up('md') {
+      font-size: map-get($font-sizes, 'xs');
+    }
+
+    @include media-breakpoint-up('lg') {
+      font-size: map-get($font-sizes, 'sm');
+    }
+
+    @include media-breakpoint-up('xl') {
+      font-size: map-get($font-sizes, 'default');
+    }
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+.app-footer__logo {
+  width: rem(132px);
+}
+
+.app-footer__copyright {
+  margin-top: 1rem;
+
+  font-size: map-get($font-sizes, 'xs');
+}

@@ -1,0 +1,19 @@
+.list-social-platform {
+  display: flex;
+  margin: 0;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(36px);
+    height: rem(36px);
+  }
+
+  // Enlarge the Behance icon as it looks smaller than the others
+  // while it's exactly the same size; just a visual effect
+  &__icon--behance {
+    width: rem(20px);
+    height: rem(20px);
+  }
+}
