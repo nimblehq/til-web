@@ -1,6 +1,7 @@
 const homeDataTestIds = {
   heading: 'home-heading',
   postList: 'post-list',
+  postListPaginationBar: 'post-list__pagination-bar',
   postLink: 'post-card__link',
   randomButton: 'posts__random-button',
 };
@@ -9,7 +10,7 @@ const postDetailsTestIds = {
   title: 'post-details__title',
 };
 
-describe('Home screen', () => {
+describe('Home screen', { defaultCommandTimeout: 30000 }, () => {
   it('renders the correct components', () => {
     // Start from the index page
     cy.visit('/');
@@ -17,9 +18,7 @@ describe('Home screen', () => {
     cy.url().should('include', '/');
     cy.findByTestId(homeDataTestIds.heading).contains('TIL');
     cy.findByTestId(homeDataTestIds.postList).should('exist');
-    cy.findByTestId(homeDataTestIds.randomButton)
-      .should('exist')
-      .contains('TIL');
+    cy.findByTestId(homeDataTestIds.postListPaginationBar).should('exist');
   });
 
   context('when clicking on a post', () => {
@@ -30,7 +29,7 @@ describe('Home screen', () => {
       // Click on the first post
       cy.findAllByTestId(homeDataTestIds.postLink).first().click();
 
-      cy.get('h1', { timeout: 15000 }).should(
+      cy.get('h1').should(
         'have.attr',
         'data-test-id',
         postDetailsTestIds.title
@@ -47,7 +46,7 @@ describe('Home screen', () => {
       // Click on the random button
       cy.findByTestId(homeDataTestIds.randomButton).click();
 
-      cy.get('h1', { timeout: 15000 }).should(
+      cy.get('h1').should(
         'have.attr',
         'data-test-id',
         postDetailsTestIds.title

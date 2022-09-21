@@ -1,0 +1,48 @@
+// Apply a nicer and animated button
+@mixin animated-button($accent-color) {
+  overflow: hidden;
+
+  &::before {
+    @include transition(transform $base-animation-duration, opacity $base-animation-duration);
+
+    content: '';
+
+    position: absolute;
+    z-index: map-get($z-index, 'behind');
+    top: 50%;
+    left: 50%;
+
+    width: 1rem;
+    height: 1rem;
+
+    transform: scale(1) translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    opacity: 0;
+    background: darken($accent-color, 10%);
+    will-change: opacity;
+  }
+
+  &:hover::before {
+    transform: scale(45);
+
+    opacity: 1;
+
+    @include media-breakpoint-up('lg') {
+      transform: scale(18);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    border-color: darken($accent-color, 10%);
+  }
+
+  &:focus {
+    border-color: darken($accent-color, 10%);
+    outline: none;
+
+    background: darken($accent-color, 10%);
+  }
+}

@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import Link from 'next/link';
 
 import Image from 'components/Image';
@@ -24,79 +23,77 @@ export const postCardTestIds = {
   tags: 'post-card__tags',
 };
 
-const PostCard = ({ post, itemsRowWise = false }: PostCardProps) => {
+const PostCard = ({ post }: PostCardProps) => {
   return (
-    <div
-      className={classNames(
-        { 'w-[48%]': itemsRowWise },
-        'card bg-base-200 shadow-xl my-8 rounded-lg'
-      )}
-      data-test-id={postCardTestIds.root}
-    >
-      <div className="p-8">
-        <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-          <a href={`/posts/${post.slug}`} data-test-id={postCardTestIds.link}>
-            <h2
-              className="text-2xl font-bold text-center hover:text-primary"
-              data-test-id={postCardTestIds.title}
+    <div className="card-article">
+      {post.coverImage && (
+        <div className="card-article__cover">
+          <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>
+            <a
+              className="card-article__cover-link"
+              href={`/posts/${post.slug}`}
+              data-test-id={postCardTestIds.link}
             >
-              {post.title}
-            </h2>
-            {post.coverImage && (
-              <div className="m-auto max-w-sm">
-                <Image
-                  src={post.coverImage}
-                  alt={post.title}
-                  width={480}
-                  height={320}
-                  layout="responsive"
-                  objectFit="contain"
-                  data-test-id={postCardTestIds.image}
-                />
-              </div>
-            )}
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                width={245}
+                height={122}
+                className="card-article__cover-image"
+                data-test-id={postCardTestIds.image}
+              />
+            </a>
+          </Link>
+        </div>
+      )}
+      <h2
+        className="card-article__headline"
+        data-test-id={postCardTestIds.title}
+      >
+        <Link href="/posts/[slug]" as={`/posts/${post.slug}`} passHref>
+          <a
+            className="card-article__headline-link"
+            href={`/posts/${post.slug}`}
+            data-test-id={postCardTestIds.link}
+          >
+            {post.title}
           </a>
         </Link>
-        <div className="my-4">
-          <p
-            className="line-clamp-3"
-            data-test-id={postCardTestIds.description}
-          >
-            {post.excerpt || post.content}
-          </p>
+      </h2>
+      <div
+        className="card-article__description"
+        data-test-id={postCardTestIds.description}
+      >
+        {post.excerpt || post.content}
+      </div>
+      <div className="card-article__footer">
+        <div className="card-article__avatar">
+          <Image
+            src={getAvatarUrl(post.author, 40)}
+            alt={getAuthorName(post.author)}
+            className="card-article__avatar-image"
+            width={40}
+            height={40}
+            data-test-id={postCardTestIds.authorAvatar}
+          />
         </div>
         <div
-          className="flex justify-between mt-4"
-          data-test-id={postCardTestIds.tags}
+          className="card-article__author"
+          data-test-id={postCardTestIds.authorName}
         >
-          <TagList tags={post.tags} />
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8">
-              <Image
-                src={getAvatarUrl(post.author, 32)}
-                alt={getAuthorName(post.author)}
-                width={32}
-                height={32}
-                className="rounded-full"
-                layout="fixed"
-                data-test-id={postCardTestIds.authorAvatar}
-              />
-            </div>
-            <div
-              className="text-sm font-semibold"
-              data-test-id={postCardTestIds.authorName}
-            >
-              {getAuthorName(post.author)}
-            </div>
-            <time
-              className="text-sm"
-              dateTime={post.date}
-              data-test-id={postCardTestIds.date}
-            >
-              {formatDate(post.date)}
-            </time>
-          </div>
+          {getAuthorName(post.author)}
         </div>
+        <div
+          className="card-article__timestamp"
+          data-test-id={postCardTestIds.date}
+        >
+          {formatDate(post.date)}
+        </div>
+        <TagList
+          tags={post.tags}
+          customClass="card-article"
+          data-test-id={postCardTestIds.tags}
+        />
       </div>
     </div>
   );

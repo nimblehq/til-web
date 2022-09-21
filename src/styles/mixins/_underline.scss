@@ -1,0 +1,44 @@
+// Apply a nicer and animated underline
+@mixin animated-underline() {
+  position: relative;
+
+  white-space: normal;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    transition: opacity $base-animation-duration ease-in-out;
+
+    border: 1px solid currentColor;
+
+    opacity: 0;
+  }
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+@mixin multiple-line-underline() {
+  padding-bottom: 3px;
+
+  background-image: linear-gradient(to bottom, transparent 0%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 2px;
+
+  &:hover {
+    background-image: linear-gradient(to bottom, currentColor 0%, currentColor 100%);
+  }
+
+  &::after {
+    content: initial;
+  }
+}

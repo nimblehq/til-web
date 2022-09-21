@@ -1,0 +1,11 @@
+// The font `Neuzeit` does not align to the baseline
+// Oly workaround is adjusting the line-height: https://stackoverflow.com/questions/28101813/fix-custom-font-line-height-with-css
+@mixin vertical-align-text($container-height) {
+  height: $container-height;
+
+  line-height: calc(#{$container-height} + 4px);
+
+  @include media-breakpoint-up('lg') {
+    line-height: calc(#{$container-height} + 8px);
+  }
+}

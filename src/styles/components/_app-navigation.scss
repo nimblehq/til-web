@@ -1,0 +1,366 @@
+.app-navigation {
+  position: relative;
+
+  text-align: center;
+
+  &__logo {
+    display: inline-block;
+    width: rem(60px);
+    height: rem(60px);
+
+    @include media-breakpoint-up('xl') {
+      width: rem(100px);
+      height: rem(100px);
+    }
+  }
+
+  // .btn is required to override the default position/display properties
+  .btn.app-navigation__btn-toggle-drawer {
+    display: flex;
+    position: fixed;
+    z-index: map-get($z-index, 'highest');
+    top: 25px;
+    // grid-gutter-width/2 - padding
+    left: 18px;
+    align-items: center;
+    // Increase touch area
+    width: rem(50px);
+    height: rem(50px);
+    padding: rem(12px);
+
+    transition-property: background;
+    transition-duration: $base-animation-duration;
+    transition-delay: 0s;
+
+    border-radius: 50%;
+
+    @include media-breakpoint-up('xl') {
+      top: 65px;
+      // grid-gutter-width - padding + 1px
+      left: 49px;
+    }
+
+    &--with-background {
+      @include push($base-animation-duration);
+
+      transition-delay: $base-animation-duration;
+
+      background: var(--color-brand-valhalla);
+    }
+
+    // Define transition behaviour
+    .icon-hamburger,
+    .icon-hamburger::before,
+    .icon-hamburger::after {
+      transition-duration: 500ms;
+      transition-timing-function: swing;
+    }
+  }
+
+  // .btn is required to override the default position/display properties
+  .btn.app-navigation__btn-project {
+    position: absolute;
+    top: rem(-16px);
+    right: 0;
+
+    line-height: 1.25;
+
+    @include media-breakpoint-up('xl') {
+      top: rem(25px);
+    }
+
+    &,
+    &:hover {
+      color: hsl(0, 0%, 100%);
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    > span {
+      @include animated-underline();
+    }
+
+    > span,
+    .icon {
+      display: inline-block;
+    }
+
+    .icon {
+      margin-left: rem(10px);
+
+      color: hsl(0, 0%, 100%);
+
+      @include media-breakpoint-up('lg') {
+        color: var(--color-brand-red-ribbon);
+      }
+    }
+  }
+
+  // Displayed on small screens only
+  .app-navigation__menu > .btn.app-navigation__btn-project {
+    display: block;
+    padding-right: $grid-gutter-width/2;
+    padding-left: $grid-gutter-width/2;
+
+    @include media-breakpoint-up('lg') {
+      display: none;
+    }
+  }
+
+  // Displayed on large screens only
+  > .btn.app-navigation__btn-project {
+    display: none;
+
+    @include media-breakpoint-up('lg') {
+      display: block;
+      padding-right: 0;
+    }
+  }
+}
+
+.app-navigation__drawer {
+  display: flex;
+  visibility: hidden;
+
+  position: fixed;
+  z-index: map-get($z-index, 'high');
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  // Set to `0` for animation purposes
+  width: 0;
+  height: 100vh;
+  overflow: hidden;
+
+  text-align: left;
+
+  pointer-events: none;
+
+  @include media-landscape() {
+    flex-direction: row;
+  }
+
+  @include media-breakpoint-up('lg') {
+    flex-direction: row;
+
+    @include media-portrait() {
+      flex-direction: column;
+    }
+  }
+
+  &,
+  &::before {
+    @include trigger-gpu-rendering();
+
+    transition-duration: $base-animation-duration;
+    transition-timing-function: ease-in-out;
+    transition-delay: $base-animation-duration/2;
+  }
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: map-get($z-index, 'behind');
+    left: 0;
+
+    // Set to `0` for animation purposes
+    width: 0;
+    height: inherit;
+
+    background: var(--color-brand-red-ribbon);
+    will-change: width;
+  }
+
+  .app-navigation__menu,
+  .app-navigation__contact {
+    flex: 0 0 50%;
+
+    transition: opacity $base-animation-duration/2 ease-in-out;
+
+    opacity: 0;
+  }
+}
+
+.app-navigation__menu {
+  padding-top: rem(90px);
+  padding-right: ($grid-gutter-width / 2);
+  padding-left: ($grid-gutter-width / 2);
+
+  // Target very small devices like iPhone 5
+  @include media-portrait() {
+    @media (max-height: 640px) {
+      padding-top: rem(80px);
+    }
+  }
+
+  @include media-breakpoint-up('lg') {
+    padding-top: 8rem;
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+
+    @include media-portrait() {
+      padding-top: rem(90px);
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: rem(30px);
+
+    // Target very small devices like iPhone 5
+    @include media-portrait() {
+      @media (max-height: 640px) {
+        padding-bottom: rem(20px);
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      max-height: rem(600px);
+    }
+  }
+
+  &-item {
+    position: relative;
+
+    transition: text-indent $base-animation-duration/2 ease-in-out;
+
+    // Set to `0` for animation purposes
+    text-indent: 0;
+    will-change: text-indent;
+
+    @include media-breakpoint-up('lg') {
+      line-height: rem(50px);
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: map-get($z-index, 'default');
+      top: 14px;
+      left: -74px;
+
+      // Set to `0` for animation purposes
+      width: 0;
+      height: 1px;
+
+      transition: width $base-animation-duration/2 ease-in-out;
+
+      background: hsl(0, 0%, 100%);
+      will-change: width;
+
+      @include media-breakpoint-up('lg') {
+        top: 24px;
+        left: -60px;
+      }
+    }
+  }
+
+  &-link {
+    @include vertical-align-text(30px);
+
+    display: block;
+    padding: 0 5px;
+
+    font-size: map-get($font-sizes, 'xl');
+    font-weight: bold;
+
+    white-space: pre;
+
+    // Target very small devices like iPhone 5
+    @include media-portrait() {
+      @media (max-height: 640px) {
+        font-size: map-get($font-sizes, 'sm');
+      }
+    }
+
+    @include media-breakpoint-up('lg') {
+      @include vertical-align-text(50px);
+
+      font-size: map-get($font-sizes, 'xxxl');
+
+      @include media-portrait() {
+        @include vertical-align-text(40px);
+      }
+    }
+
+    &,
+    &:hover,
+    &:focus {
+      color: hsl(0, 0%, 100%);
+      text-decoration: none;
+    }
+  }
+
+  &-item:hover,
+  &-item--active {
+    text-indent: rem(20px);
+
+    @include media-breakpoint-up('lg') {
+      text-indent: rem(40px);
+    }
+
+    &::before {
+      // Set to `0` for animation purposes
+      width: rem(80px);
+
+      @include media-breakpoint-up('lg') {
+        left: -60px;
+      }
+    }
+  }
+}
+
+// Drawer animation
+
+.app-navigation--drawer-open {
+  .btn.app-navigation__btn-toggle-drawer {
+    background: transparent;
+  }
+
+  .app-navigation__btn-toggle-drawer .icon-hamburger {
+    width: 0;
+
+    &::before {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  }
+
+  .app-navigation__drawer {
+    visibility: visible;
+
+    width: 100vw;
+
+    pointer-events: auto;
+
+    &,
+    &::before {
+      transition-delay: 0s;
+    }
+
+    &::before {
+      width: inherit;
+    }
+  }
+
+  .app-navigation__menu,
+  .app-navigation__contact {
+    transition-delay: $base-animation-duration * 1.25;
+
+    opacity: 1;
+  }
+}

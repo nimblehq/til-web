@@ -1,3 +1,5 @@
+import Footer from 'components/Footer';
+import Header from 'components/Header';
 import RandomButton from 'components/Post/RandomButton';
 
 interface LayoutProps {
@@ -7,8 +9,10 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <main className="container max-w-4xl mx-auto">{children}</main>
+      <Header />
+      <main className="app-content">{children}</main>
       <RandomButton />
+      <Footer />
     </>
   );
 };

@@ -1,0 +1,35 @@
+.random-btn {
+  display: flex;
+  position: fixed;
+  z-index: map-get($z-index, 'highest');
+  right: rem(18px);
+  bottom: rem(48px);
+  align-items: center;
+  width: rem(50px);
+  height: rem(50px);
+  padding: rem(12px);
+
+  transition-property: background;
+  transition-duration: $base-animation-duration;
+  transition-delay: 0s;
+
+  border-radius: 50%;
+  border-color: var(--color-gray-primary);
+
+  background: var(--color-brand-valhalla);
+
+  color: var(--color-gray-primary);
+
+  @include media-breakpoint-up('lg') {
+    right: rem(56px);
+    bottom: rem(32px);
+  }
+
+  &--loading {
+    background: var(--color-gray-primary);
+
+    color: var(--color-brand-valhalla);
+
+    cursor: not-allowed;
+  }
+}

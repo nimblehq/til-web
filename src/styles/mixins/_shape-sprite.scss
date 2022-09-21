@@ -1,0 +1,161 @@
+$sprites: (
+  'shape-1': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg%3e%3cpath fill='black' opacity='.1' d='M0 430h430V0H0z'/%3e%3cpath fill='black' opacity='.2' d='m430 0 430 430H430z'/%3e%3cpath fill='black' opacity='.05' d='M0 645h430V430H0z'/%3e%3cpath fill='black' opacity='.08' d='M430 645h430V430H430z'/%3e%3cpath fill='%23F2F2F2' opacity='.4' d='M861 645h430V430H861z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-10': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='.24' fill-rule='evenodd' clip-rule='evenodd' d='M0 73h72.677V.323H0V73Z' fill='white'/%3e%3c/svg%3e",
+  'shape-11': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='%239EA1AC' d='M0 0h4v4H0zM16 0h4v4h-4zM32 0h4v4h-4z'/%3e%3c/svg%3e",
+  'shape-2': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='scale(1 -1) rotate(-45 -448.97 -185.97)'%3e%3cpath fill='%230F0033' opacity='.05' d='M0 263h263V0H0z'/%3e%3cpath fill='%23E8E7EB' opacity='.4' d='m263 0 263 263H263z'/%3e%3cpath fill='%230F0033' opacity='.07' d='M263 526h263V263H263z'/%3e%3cpath fill='%230F0033' opacity='.01' d='M526 526h263L526 263z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-3': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg transform='matrix(-1 0 0 1 789 0)' fill='%230F0033'%3e%3cpath opacity='.1' d='M0 264h263V1H0z'/%3e%3cpath opacity='.02' d='m263 0 263 263H263z'/%3e%3cpath opacity='.07' d='M263 526h263V263H263z'/%3e%3cpath opacity='.02' d='M526 526h263L526 263z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-4': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg fill='%230F0033'%3e%3cg%3e%3cpath opacity='.3' d='M0 265h265V0H0z'/%3e%3cpath opacity='.1' d='M265 530h265V265H265z'/%3e%3cpath opacity='.2' d='M529 794h265V529H529z'/%3e%3c/g%3e%3cg transform='translate(542)'%3e%3cpath opacity='.3' d='M0 265h265V0H0z'/%3e%3cpath opacity='.1' d='M265 530h265V265H265z'/%3e%3cpath opacity='.2' d='M529 794h265V529H529z'/%3e%3c/g%3e%3cg transform='translate(1102)'%3e%3cpath opacity='.3' d='M0 265h265V0H0z'/%3e%3cpath opacity='.1' d='M265 530h265V265H265z'/%3e%3cpath opacity='.2' d='M529 794h265V529H529z'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-5': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd' opacity='.4'%3e%3cg transform='matrix(-1 0 0 1 1230 0)'%3e%3cpath fill='white' opacity='.05' d='M0 410h410V0H0z'/%3e%3cpath fill='black' opacity='.234' d='m410 0 410 410H410z'/%3e%3cpath fill='black' opacity='.1' d='M410 820h410V410H410z'/%3e%3cpath fill='black' opacity='.3' d='M820 820h410L820 410z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-6': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpath id='a' d='M0 0h1448v452H0z'/%3e%3c/defs%3e%3cg transform='translate(-641)'%3e%3cg%3e%3cg%3e%3cmask id='b' fill='white'%3e%3cuse xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='%23a'/%3e%3c/mask%3e%3cg opacity='.4' mask='url(%23b)'%3e%3cg transform='translate(641 -174)'%3e%3cg transform='matrix(-1 0 0 1 820 0)' fill='white'%3e%3cpath opacity='.1' d='m410 0 410 410H410z'/%3e%3cpath opacity='.2' d='M0 410h410V0H0z'/%3e%3cpath opacity='.1' d='M238 820h410L238 410z'/%3e%3cpath opacity='.1' d='M66 820h410L66 410z'/%3e%3cpath opacity='.1' d='M410 820h410L410 410z'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-7': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg%3e%3cg transform='rotate(-45 677.721 280.721)' fill='%230F0033'%3e%3cpath opacity='.3' d='M0 265h265V0H0z'/%3e%3cpath opacity='.1' d='M265 530h265V265H265z'/%3e%3cpath opacity='.2' d='M529 794h265V529H529z'/%3e%3c/g%3e%3cg transform='scale(1 -1) rotate(-45 -707.841 -895.652)' fill='%23E20041' opacity='.01'%3e%3cpath d='M0 299h299V0H0z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-8': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='none' fill-rule='evenodd'%3e%3cg%3e%3cpath fill='%23FA4616' opacity='.03' d='M125 125h125V0H125z'/%3e%3cpath fill='%23E20041' opacity='.2' d='M125 250h125V125H125z'/%3e%3cpath fill='%23E20041' opacity='.4' d='M250 250h125V125H250z'/%3e%3cpath fill='%23E20041' opacity='.1' d='M0 250h125V125H0z'/%3e%3cpath fill='%23E20041' opacity='.05' d='M125 375h125V250H125z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-9': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='.24' fill-rule='evenodd' clip-rule='evenodd' d='M146.323 73H219V.323h-72.677V73Z' fill='white'/%3e%3cpath opacity='.14' fill-rule='evenodd' clip-rule='evenodd' d='M72.677 73h73.646V.323H72.677V73Z' fill='white'/%3e%3cpath opacity='.1' fill-rule='evenodd' clip-rule='evenodd' d='M0 73h72.677V.323H0V73Z' fill='white'/%3e%3c/svg%3e",
+  'shape-header-1': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cpath opacity='.04' d='M0 849.59h510v520.758z'/%3e%3cpath opacity='.05' d='M22.932 240.696 161.9 0l244.009 140.879z'/%3e%3cpath opacity='.06' d='m1983.224 961.07 180.275 672.796-728.546 195.214z'/%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-2': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-1142 -285)'%3e%3cpath opacity='.04' d='M2740 860.261 2830.417 0l877.922 92.273z'/%3e%3cpath opacity='.05' d='M2549 1705.294 2793.966 1281l430.205 248.379z'/%3e%3cpath opacity='.06' d='m1580.492 566 391.472 1460.992-1580.492 423.492z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-3': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-110 -496)'%3e%3cpath opacity='.03' d='M0 1347.577 141.636 0 1516.82 144.538z'/%3e%3cpath opacity='.05' d='M1708 1170.294 1952.966 746l430.205 248.379z'/%3e%3cpath opacity='.06' d='m1481.44 1493 279.143 1041.78-1128.439 302.364z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-4': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-237 -174)'%3e%3cpath opacity='.04' d='M749.662 1170.95 529.68 1689.196.613 1464.62z'/%3e%3cpath opacity='.05' d='M492 424.294 736.966 0l430.205 248.379z'/%3e%3cpath opacity='.06' d='M2561.177 336 2989.4 1934.153l-1731.177 463.868z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-5': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-394 -1454)'%3e%3cpath opacity='.04' d='m3005.049 1915.576-219.982 518.244L2256 2209.244z'/%3e%3cpath opacity='.05' d='m1164 3197.47 26.451-757.47 768.29 26.83z'/%3e%3cpath opacity='.06' d='M1731.177 0 2159.4 1598.153 428.224 2062.021z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-6': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-484 -464)'%3e%3cpath opacity='.04' d='m1505.865 1387.482-294.22 693.14L504 1780.244z'/%3e%3cpath opacity='.05' d='M2205 899.68 2501.148 202l707.645 300.377z'/%3e%3cpath opacity='.06' d='m589.453 0 145.593 543.362-589.452 157.944z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-7': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(-281 -613)'%3e%3cpath opacity='.04' d='m1936.865 300.377-294.22 693.14L935 693.14z'/%3e%3cpath opacity='.05' d='M0 1670.68 296.148 973l707.645 300.377z'/%3e%3cpath opacity='.06' d='m1524.453 1472 145.593 543.362-589.452 157.944z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e",
+  'shape-header-8': "data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='white'%3e%3cg transform='translate(434 -687)'%3e%3cpath opacity='.04' d='M1261.386 658.954 615.94 1046.777 220 387.824z'/%3e%3cpath opacity='.05' d='M0 1956.545 129.696 1651l309.987 131.582z'/%3e%3cpath opacity='.06' d='m1396.413 719 222.721 831.208-902.412 241.801z'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
+);
+
+$sizes: (
+  'shape-1': (
+    'width': 1291px,
+    'height': 645px
+  ),
+  'shape-10': (
+    'width': 73px,
+    'height': 73px
+  ),
+  'shape-11': (
+    'width': 36px,
+    'height': 4px
+  ),
+  'shape-2': (
+    'width': 930px,
+    'height': 930px
+  ),
+  'shape-3': (
+    'width': 789px,
+    'height': 526px
+  ),
+  'shape-4': (
+    'width': 1896px,
+    'height': 794px
+  ),
+  'shape-5': (
+    'width': 1230px,
+    'height': 820px
+  ),
+  'shape-6': (
+    'width': 807px,
+    'height': 452px
+  ),
+  'shape-7': (
+    'width': 1123px,
+    'height': 1123px
+  ),
+  'shape-8': (
+    'width': 375px,
+    'height': 375px
+  ),
+  'shape-9': (
+    'width': 219px,
+    'height': 73px
+  ),
+  'shape-header-1': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-2': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-3': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-4': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-5': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-6': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-7': (
+    'width': 2164px,
+    'height': 1224px
+  ),
+  'shape-header-8': (
+    'width': 2164px,
+    'height': 1224px
+  )
+);
+
+$variables: (
+  
+);
+
+// https://github.com/waldemarfm/sass-svg-uri/blob/v1.0.0/_svg-uri.scss
+@function sprite-str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if type-of($replace) == 'null' {
+    $replace: '';
+  }
+
+  @if ( $index ) {
+    @return str-slice($string, 1, $index - 1) + $replace + sprite-str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function sprite-svg-uri($value) {
+  $output: $value;
+
+  $output: sprite-str-replace($output, '"', "'");
+  $output: sprite-str-replace($output, '<', '%3C');
+  $output: sprite-str-replace($output, '>', '%3E');
+  $output: sprite-str-replace($output, '&', '%26');
+  $output: sprite-str-replace($output, '#', '%23');
+
+  @return $output;
+}
+
+@mixin sprite($name, $user-variables: (), $include-size: false) {
+  $sprite: map-get($sprites, $name);
+
+  // Inject variables
+  $default-variables: map-get($variables, $name);
+  @if type-of($default-variables) == 'map' {
+    @each $key, $value in map-merge($default-variables, $user-variables) {
+      @if ( not map-has-key($default-variables, $key) ) {
+        @warn 'Sprite \'#{$name}\' does not support variable named \'#{$key}\'';
+      }
+
+      $sprite: sprite-str-replace($sprite, '___#{$key}___', sprite-svg-uri(quote(#{$value})));
+    }
+  } @else if type-of($user-variables) == 'map' {
+    @warn 'Sprite \'#{$name}\' does not contain any variables';
+  }
+
+  background: url($sprite) center no-repeat;
+
+  @if $include-size {
+    $size: map-get($sizes, $name);
+    @if $include-size == true {
+      background-size: map-get($size, width) map-get($size, height);
+    } @else if $include-size == 'box' {
+      width: map-get($size, width);
+      height: map-get($size, height);
+    }
+  }
+}

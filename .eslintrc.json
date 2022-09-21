@@ -2,5 +2,13 @@
   "extends": [
     "@nimblehq/eslint-config-nimble-react",
     "next/core-web-vitals"
+  ],
+  "overrides": [
+    {
+      "files": ["*.config.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
   ]
 }

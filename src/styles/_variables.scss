@@ -1,0 +1,141 @@
+// Colors
+
+$color-gray: (
+  primary: hsl(204, 15%, 87%),
+  light: hsl(206, 28%, 95%),
+  lighter: hsl(204, 45%, 98%),
+  lightest: hsl(210, 50%, 98%),
+  dark: hsl(258, 100%, 10%)
+);
+
+// Brand palette (using http://chir.ag/projects/name-that-color/)
+$color-brand: (
+  red-ribbon: hsl(344, 95%, 47%),
+  pomegranate: hsl(10, 88%, 54%),
+  lucky-point: hsl(240, 66%, 26%),
+  electric-violet: hsl(263, 88%, 47%),
+  purple-heart: hsl(253, 54%, 49%),
+  big-stone: hsl(219, 46%, 15%),
+  valhalla: hsl(253, 54%, 18%),
+  woodsmoke : hsl(240, 11%, 9%),
+  athens-gray: hsl(214, 16%, 92%),
+  ghost: hsl(224, 10%, 79%),
+  santas-gray: hsl(227, 8%, 65%),
+  // Extra color based on `big-stone`.
+  // In the design this is generated with q white overlay at 5% on `big-stone`
+  cloud-burst: hsl(216, 37%, 19%)
+);
+
+$color-alert: (
+  info: hsl(235, 96%, 63%)
+);
+
+// Layout
+
+$grid-columns: 12;
+$grid-gutter-width: 60px;
+
+// Grid
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1380px
+);
+
+// Z-index
+$z-index: (
+  default: 1,
+  behind: -1,
+  high: 5,
+  higher: 100,
+  highest: 1000,
+  sky: 10000
+);
+
+// Typography
+
+$font-sizes: (
+  default: 1rem,  // 16px
+  xxs: 0.6875rem, // 11px
+  xs: 0.75rem,    // 12px
+  sm: 0.875rem,   // 14px
+  md: 0.9375rem,  // 15px
+  lg: 1.0625rem,  // 17px
+  xl: 1.25rem,    // 20px
+  xxl: 1.5rem,    // 24px
+  xxxl: 1.85rem,  // 29.6px
+  xxxxl: 2rem     // 32px
+);
+
+$heading-sizes: (
+  h1: 10.625rem,  // 170px
+  h2: 4.125rem,   // 66px
+  h3: 3.25rem,    // 52px
+  h4: 2.75rem,    // 44px
+  h5: 2.3125rem,  // 37px
+  h6: 1rem        // 16px
+);
+
+$font-weight: (
+  normal: 400,
+  bold: 700,
+  bolder: 800
+);
+
+$base-font-size: map-get($font-sizes, 'default');
+$base-font-family: 'Neuzeit S', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Lucida Grande',
+  'Helvetica Neue', 'Helvetica', 'Fira Sans', 'Roboto', 'Noto', 'Droid Sans', 'Cantarell', 'Oxygen', 'Ubuntu',
+  'Franklin Gothic Medium', 'Century Gothic', 'Liberation Sans', sans-serif;
+$base-line-height: 1.5;
+$base-font-color: map-get($color-gray, 'dark');
+
+// Animations
+
+$base-animation-duration: 300ms;
+$base-animation-timing: linear;
+
+// Blog
+
+// Layout
+$blog-side-panel-width: 22.5rem; // 360px
+
+// Layout - Header
+$blog-header-height: 4rem; // 64px
+$blog-header-height-md: 4.5rem; // 72px
+$blog-header-divider-opacity: 0.32; // 32%
+
+// Layout - Footer
+$blog-footer-height: 35rem; // 560px
+$blog-footer-height-md: 14.375rem; // 230px
+
+// Article
+$blog-article-container-max-width: 67.5rem; //1080px
+$blog-article-column-gap-width: 5.5rem; // 88px
+$blog-article-side-panel-width: $blog-side-panel-width;
+
+// Card Article
+$blog-card-article-headline-color: map-get($color-gray, 'dark');
+$blog-card-article-description-color: map-get($color-brand, 'woodsmoke');
+$blog-card-article-author-color: map-get($color-brand, 'red-ribbon');
+$blog-card-article-timestamp-color: map-get($color-brand, 'santas-gray');
+$blog-card-article-tag-item-color: map-get($color-brand, 'red-ribbon');
+$blog-card-article-divider-color: map-get($color-brand, 'athens-gray');
+
+// Category Archive
+$blog-category-archive-heading-size: 3.375rem; // 54px
+
+// Header
+$blog-header-margin-top: 72px;
+$blog-header-margin-bottom: 80px;

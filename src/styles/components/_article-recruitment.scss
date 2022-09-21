@@ -1,0 +1,38 @@
+.article-recruitment {
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  background-color: var(--color-brand-red-ribbon);
+
+  @include media-breakpoint-up('lg') {
+    background: {
+      image: url('#{map-get($sprites, 'shape-9')}');
+      size: rem(216px);
+    }
+  }
+
+  background: {
+    image: url('#{map-get($sprites, 'shape-10')}');
+    repeat: no-repeat;
+
+    position: right bottom;
+    size: rem(72px);
+  }
+
+  &__content {
+    color: hsl(0, 0%, 100%);
+  }
+
+  &__link,
+  &__link:hover {
+    @include multiple-line-underline();
+
+    background-image: linear-gradient(to bottom, currentColor 0%, currentColor 100%);
+
+    color: #fff;
+  }
+
+  &__button {
+    padding: rem(13px 16px 11px);
+  }
+}

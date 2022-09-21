@@ -1,0 +1,16 @@
+.syntax-highlight {
+  width: calc(100vw - #{$grid-gutter-width});
+  margin-bottom: 2rem;
+  padding: rem(8px 32px);
+
+  background: var(--color-gray-lightest);
+
+  @include media-breakpoint-up('lg') {
+    width: calc(100vw - (#{$grid-gutter-width * 2} + #{$grid-gutter-width}));
+  }
+
+  @include media-breakpoint-up('xl') {
+    width: calc(100vw - (#{$grid-gutter-width * 2} + #{$grid-gutter-width} + #{$blog-article-side-panel-width} + #{$blog-article-column-gap-width}));
+    max-width: 100%;
+  }
+}
